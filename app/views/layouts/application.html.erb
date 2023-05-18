@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WorkGithub</title>
+    <title>Nagano-Cake</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
 
   <% if customer_signed_in? %>
@@ -21,10 +22,11 @@
 
       <!--footer-->
       <div id="footer">
-        <%= render "leyouts/footer" %>
+        <%= render "layouts/footer" %>
       </div>
     </body>
     <% elsif admin_signed_in? %>
+    <body>
       <!--header-->
       <div id="header">
         <%= render  "layouts/header" %>
@@ -34,8 +36,23 @@
 
       <!--footer-->
       <div id="footer">
-        <%= render "leyouts/footer" %>
+        <%= render "layouts/footer" %>
       </div>
+    </body>
+    <% else %>
+    <body>
+        <!--header-->
+      <div id="header">
+        <%=render "layouts/header" %>
+      </div>
+
+      <!--body部分-->
+
+      <!--footer-->
+      <div id="footer">
+        <%= render "layouts/footer" %>
+      </div>
+    </body>
   <% end %>
   <body>
     <%= yield %>
