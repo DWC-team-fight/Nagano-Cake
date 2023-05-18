@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
 
   # 顧客側のルーティング
-  devise_for :publics, controllers: {
+  devise_for :customers, controllers: {
     sessions:       'publics/sessions',
     password:       'publics/passwords',
     registrations:  'publics/registrations'
@@ -61,7 +61,7 @@ Rails.application.routes.draw do
     delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'
     # 注文画面について
     resources :orders, only:[:new, :index, :show,:update]
-    POST 'orders/confirm' => 'orders#confirm'
+    post 'orders/confirm' => 'orders#confirm'
     get 'complete' => 'orders#complete'
     # 配送先住所について
     resources :delivery_addresses, only:[:index, :edit, :create, :update, :destroy]
