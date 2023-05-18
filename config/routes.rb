@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     password:       'publics/passwords',
     registrations:  'publics/registrations'
   }
-  # URL変更不可、ファイル構成変更不可
+  # URL変更可、ファイル構成変更不可
   scope module: 'publics' do
     # トップページ
     root to:'homes#top'
@@ -41,19 +41,10 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
     # 商品ページ
     resources :items, only: [:index, :show]
-    # カート内商品について
-    resources :cart_items, only: [:index, :update, :create, :destroy]
-    delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'
-    # 注文画面について
-    resources :orders, only:[:new, :index, :show,:update]
-    post 'orders/confirm' => 'orders#confirm'
-    get 'complete' => 'orders#complete'
-    # 配送先住所について
-    resources :delivery_addresses, only:[:index, :edit, :create, :update, :destroy]
   end
 
 
-  # URL変更可、ファイル構成変更不可
+
   namespace :publics do
     # 顧客の会員登録関連
     resources :registrations, only: [:new, :create]
@@ -65,7 +56,15 @@ Rails.application.routes.draw do
     patch 'update' => 'customers#update', as: 'customers/information'
     get 'check' => 'customers#check'
     patch 'customers/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
-
+    # カート内商品について
+    resources :cart_items, only: [:index, :update, :create, :destroy]
+    delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'
+    # 注文画面について
+    resources :orders, only:[:new, :index, :show,:update]
+    post 'orders/confirm' => 'orders#confirm'
+    get 'complete' => 'orders#complete'
+    # 配送先住所について
+    resources :delivery_addresses, only:[:index, :edit, :create, :update, :destroy]
   end
 
 
