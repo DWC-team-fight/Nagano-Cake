@@ -6,10 +6,37 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <% if customer_signed_in? %>
+    <body>
+      <!--ヘッダー-->
+      <div id="header">
+        <%=render "layouts/header" %>
+      </div>
+
+      <!--body部分-->
+
+      <!--footer-->
+      <div id="footer">
+        <%= render "leyouts/footer" %>
+      </div>
+    </body>
+    <% elsif admin_signed_in? %>
+      <!--header-->
+      <div id="header">
+        <%= render  "layouts/header" %>
+      </div>
+
+      <!--body部分-->
+
+      <!--footer-->
+      <div id="footer">
+        <%= render "leyouts/footer" %>
+      </div>
+  <% end %>
   <body>
     <%= yield %>
   </body>
