@@ -51,9 +51,9 @@ Rails.application.routes.draw do
     # 配送先住所について
     resources :delivery_addresses, only:[:index, :edit, :create, :update, :destroy]
   end
+  
+  
 
-
-  # URL変更可、ファイル構成変更不可
   namespace :publics do
     # 顧客の会員登録関連
     resources :registrations, only: [:new, :create]
@@ -65,9 +65,9 @@ Rails.application.routes.draw do
     patch 'update' => 'customers#update', as: 'customers/information'
     get 'check' => 'customers#check'
     patch 'customers/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
-
   end
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
