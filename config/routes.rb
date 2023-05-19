@@ -66,25 +66,6 @@ Rails.application.routes.draw do
     # 配送先住所について
     resources :delivery_addresses, only:[:index, :edit, :create, :update, :destroy]
   end
-  
-  
-
-<<<<<<< HEAD
-=======
-  namespace :publics do
-    # 顧客の会員登録関連
-    resources :registrations, only: [:new, :create]
-    # 顧客ログイン、ログアウト画面
-    resources :sessions, only:[:new, :create, :destroy]
-    # 顧客のページ関連
-    get 'show' => 'customers#show', as: 'customers/mypage'
-    get 'customers/edit' => 'customers#edit', as: 'customers/information/edit'
-    patch 'update' => 'customers#update', as: 'customers/information'
-    get 'check' => 'customers#check'
-    patch 'customers/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
-  end
-
->>>>>>> origin/develop
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
