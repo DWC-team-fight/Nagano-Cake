@@ -57,8 +57,7 @@ Rails.application.routes.draw do
   namespace :publics do
     # 顧客の会員登録関連
     resources :registrations, only: [:new, :create]
-    # 顧客ログイン、ログアウト画面
-    resources :sessions, only:[:new, :create, :destroy]
+
     # 顧客のページ関連
     get 'show' => 'customers#show', as: 'customers/mypage'
     get 'customers/edit' => 'customers#edit', as: 'customers/information/edit'
