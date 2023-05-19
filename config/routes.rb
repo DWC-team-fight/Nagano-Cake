@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     # アバウトページ
     get 'about' => 'homes#about'
     # 商品ページ
-    resources :items, only: [:index, :show]
+    resources :products, only: [:index, :show]
     # カート内商品について
     resources :cart_items, only: [:index, :update, :create, :destroy]
     delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'
@@ -51,8 +51,8 @@ Rails.application.routes.draw do
     # 配送先住所について
     resources :delivery_addresses, only:[:index, :edit, :create, :update, :destroy]
   end
-  
-  
+
+
 
   namespace :publics do
     # 顧客の会員登録関連
