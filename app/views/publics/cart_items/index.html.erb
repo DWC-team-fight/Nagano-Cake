@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col">
-
-      <table>
+      
+      <h3>ショッピングカート</h3>
+      <table class="table table-striped" >
         <thead>
             <th>商品名</th>
             <th>単価(税込)</th>
@@ -11,12 +12,10 @@
             <th></th>
         </thead>
         <tbody>
+        <% @合計金額 = 0 %>
         <% @cart_item.each do |cart_item| %>
             <tr>
-              <td><%= cart_item.item %></td>
-              <td><%= cart_item.item.with_tax_price %></td><!--単価*1.1-->
-              <td><%= cart_item.subtotal %></td><!--単価*1.1*個数-->
-              <% @合計金額 +=  cart_item.subtotal %>
+              <td><%= cart_item.product.name %></td>
             </tr>
         <% end %>
         </tbody>

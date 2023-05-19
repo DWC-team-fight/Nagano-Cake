@@ -44,7 +44,6 @@ Rails.application.routes.draw do
   end
 
 
-
   namespace :publics do
     # 顧客の会員登録関連
     resources :registrations, only: [:new, :create]
@@ -70,3 +69,4 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
