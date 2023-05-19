@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     # アバウトページ
     get 'about' => 'homes#about'
     # 商品ページ
-    resources :items, only: [:index, :show]
+    resources :products, only: [:index, :show]
     # カート内商品について
     resources :cart_items, only: [:index, :update, :create, :destroy]
     delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'
@@ -53,21 +53,20 @@ Rails.application.routes.draw do
   end
 
 
-  # URL変更可、ファイル構成変更不可
+
   namespace :publics do
     # 顧客の会員登録関連
     resources :registrations, only: [:new, :create]
-    # 顧客ログイン、ログアウト画面
-    resources :sessions, only:[:new, :create, :destroy]
+
     # 顧客のページ関連
     get 'show' => 'customers#show', as: 'customers/mypage'
     get 'customers/edit' => 'customers#edit', as: 'customers/information/edit'
     patch 'update' => 'customers#update', as: 'customers/information'
     get 'check' => 'customers#check'
     patch 'customers/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
-
   end
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
