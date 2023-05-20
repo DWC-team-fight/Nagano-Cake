@@ -24,9 +24,9 @@
           <% @cart_item.each do |cart_item| %>
             <tr>
               <td><%= cart_item.product.name %></td>
-              <td><%= cart_item.product.with_tax_excluded_price %>円</td>
+              <td><%= cart_item.product.with_tax_excluded_price.to_s(:delimited) %>円</td>
               <td><%= cart_item.quantity %></td>
-              <td><%= cart_item.subtotal %></td>
+              <td><%= cart_item.subtotal.to_s(:delimited) %></td>
               <td><%= link_to "削除する（未実装）", cart_items_path, method: "delete", data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %></td>
             </tr>
             <% @合計金額 += cart_item.subtotal %>
