@@ -41,6 +41,23 @@ Product.create!(
   tax_excluded_price: 1000
 )
 
+Product.create!(
+  genre_id: 1,
+  name: "ショートケーキ",
+  description: "甘すぎる",
+  tax_excluded_price: 2000,
+)
+
+puts "--------------order create-----------------"
+Order.create!(
+  customer_id: 1,
+  shipping_fee: 800,
+  delivery_address: "東京都墨田区押上１丁目１−２",
+  delivery_postal_code: "1310045",
+  delivery_name: "墨田四郎",
+
+)
+
 puts "-------------order_detail create------------"
 OrderDetail.create!(
   order_id: 1,
@@ -63,6 +80,11 @@ CartItem.create!(
   customer_id: 1,
   product_id: 1,
   quantity: 3
+)
+CartItem.create!(
+  customer_id: 1,
+  product_id: 2,
+  quantity: 5
 )
 
 puts "----end----"
