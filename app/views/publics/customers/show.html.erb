@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="col-lg-5">
+    <%= attachment_image_tag @product, :product_image,style: "width: 350px; height: 250px; margin-top:80px;" %>
+  </div>
+  <div class="col-lg-5">
+    <h1 class="pull-right" style="font-weight: bold; margin-top:100px;"><%= @prodact.name%></h1>
+  </div>
+  <div class="col-lg-5">
+    <p class="pull-right"><%= @product.descriptoon %></p>
+  </div>
+  <div class="col-lg-5">
+    <p class="pull-right"><strong>¥ <%= include-tax(@product.price) %></strong>(税込)</p>
+  </div>
+      <%= render 'publics/customers/cart', cart_item: @cart_item %>
+</div>
+0
