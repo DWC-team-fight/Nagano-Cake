@@ -56,14 +56,14 @@ Rails.application.routes.draw do
     patch 'update' => 'customers#update', as: 'customers/information'
     get 'check' => 'customers#check'
     patch 'customers/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
-    # カート内商品について
+    # カート内商品
     resources :cart_items, only: [:index, :update, :create, :destroy]
     delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'
-    # 注文画面について
+    # 注文画面
     resources :orders, only:[:new, :index, :show,:update]
     post 'orders/confirm' => 'orders#confirm'
     get 'complete' => 'orders#complete'
-    # 配送先住所について
+    # 配送先住所
     resources :delivery_addresses, only:[:index, :edit, :create, :update, :destroy]
   end
 
