@@ -16,16 +16,16 @@
             <% @orders.each do |orders| %>
               <tr>
                 <td>
-                  <%= link_to admins_order_path(@order.id) do %>
-                    <%= @order.created_at.strftime('%Y/%m/%d %H:%M') %>
+                  <%= link_to admins_order_path(orders.id) do %>
+                    <%= orders.created_at.strftime('%Y/%m/%d %H:%M') %>
                   <% end %>
                 </td>
                 <td>
-                  <%= link_to admins_customers_path(order.customer.id) do %>
-                    <%= @order.customer.first_name %><%= @order.customer.last_name %>
+                  <%= link_to admins_customers_path(orders.customer.id) do %>
+                    <%= orders.customer.first_name %><%= orders.customer.last_name %>
                   <% end %>
                 </td>
-                <td><%= order.quantity %></td>
+                <td>合計個数</td>
                 <td>注文ステータス</td>
               </tr>
             <% end %>
