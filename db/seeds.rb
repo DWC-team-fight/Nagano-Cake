@@ -34,19 +34,18 @@ Order.create!(
 )
 
 puts "-------------product create------------"
-Product.create!(
-  genre_id: 1,
-  name: "チョコケーキ",
-  description: "甘い",
-  tax_excluded_price: 1000
-)
 
-Product.create!(
-  genre_id: 1,
-  name: "ショートケーキ",
-  description: "甘すぎる",
-  tax_excluded_price: 2000,
+product1 = Product.new(
+ genre_id: 1,
+ name: "チョコケーキ",
+ description: "甘い",
+ tax_excluded_price: 1000
 )
+product1.image.attach(io: File.open(Rails.root.join('app/assets/images/sample.jpeg')), filename: 'sample.jpeg')
+product1.save!
+
+
+
 
 puts "--------------order create-----------------"
 Order.create!(

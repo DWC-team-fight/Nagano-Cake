@@ -1,12 +1,16 @@
 class Publics::ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @total_products = Product.all
+    @products = Product.all.page(params[:page]).per(8)
   end
-  
+
   def show
-    @product = Product.find(paramas[:id])
+    @product = Product.find(params[:id])
     @cart_item = CartItem.new
-    if customer_singned_in?
-      @cart_items = CartItem.where(customer_id:[current_customer.id])
+  end
+
+    private
+    def products_params
+      params.require(:product).permit(:genle_id, :name, :introduction, :price, :is_active, :image_id, :image)
     end
 end
