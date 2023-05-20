@@ -1,12 +1,12 @@
 class Publics::HomesController < ApplicationController
 
   def top
-    @params = params[:id]
-    @order = Order.where(customer_id: @params[:page]).per(10).order(created_at: :desc)
-    @orders = Order.page(params[:page]).per(10).order8created_at: :desc)
+    @products = Product.all.order(created_at: :asc)
+    #=> :asc,古い順 :desc,新しい順
+    @genres = Genere.all
   end
 
   def about
   end
 end
-end
+
