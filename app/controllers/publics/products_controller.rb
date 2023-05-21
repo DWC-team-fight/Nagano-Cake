@@ -4,9 +4,6 @@ class Publics::ProductsController < ApplicationController
   end
   
   def show
-    @product = Product.find(paramas[:id])
-    @cart_item = CartItem.new
-    if customer_singned_in?
-      @cart_items = CartItem.where(customer_id:[current_customer.id])
-    end
+    @product = Product.find(params[:id])
+  end
 end
