@@ -25,8 +25,8 @@
                     <%= orders.customer.first_name %><%= orders.customer.last_name %>
                   <% end %>
                 </td>
-                <td>合計個数</td>
-                <td>注文ステータス</td>
+                <td><%= orders.order_details.sum(:quantity) %></td>
+                <td><%= orders.status_i18n %></td>
               </tr>
             <% end %>
           </tbody>

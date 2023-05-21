@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <h4 class="ml-3">商品詳細</h4>
+  </div>
+
+  <div class="row">
+    <div class="col-11 offset-1">
+      <div claas="col-md-3">
+        <p>画像挿入(未実装)</p>
+      </div>
+      <table class="table border: hidden;">
+        <tbody>
+          <tr>
+            <td>商品名</td>
+            <td><%= @product.name %></td>
+          </tr>
+
+          <tr>
+            <td>商品説明</td>
+            <td><%= @product.description %></td>
+          </tr>
+
+          <tr>
+            <td>ジャンル</td>
+            <td><%= @product.genre.name %></td>
+          </tr>
+
+          <tr>
+            <td>税込価格(税抜価格)</td>
+            <td>
+              <%= number_with_delimiter((@product.tax_excluded_price * 1.1).to_i, delimiter: ',') %>
+              (<%= number_with_delimiter(@product.tax_excluded_price.to_i, delimiter: ',') %>)
+              <span>円</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>販売ステータス</td>
+            <td>
+              <% if @product.is_status == true %>
+                <P class="text-success">販売中(太字にする)
+              <% else %>
+                販売中止中
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="text-center">
+    <%= link_to "編集する", edit_admins_product_path(@product), class: "btn btn-success" %>
+  </div>
+</div>
