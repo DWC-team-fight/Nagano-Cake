@@ -1,5 +1,6 @@
 class Admins::OrdersController < ApplicationController
 
+<<<<<<< HEAD
   def index
     @order=Order.find(params[:id])
     @customer= @order.customer
@@ -25,4 +26,6 @@ class Admins::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:order_status)
   end
+=======
+>>>>>>> origin/develop
 end
