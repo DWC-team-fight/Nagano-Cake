@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-11 offset-1">
+        <h4 class="py-3">商品一覧</h4>
+        <table class="table">
+          <thead>
+            <tr class="table-warning">
+              <th>商品ID</th>
+              <th>商品名</th>
+              <th>税抜価格</th>
+              <th>ジャンル</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @products.each do |product| %>
+              <tr>
+                <td><%= product.id %></td>
+                <td><%= link_to product.name, admins_product_path(product.id) %></td>
+                <td><%= number_with_delimiter(product.tax_excluded_price.to_i, delimiter: ',') %></td>
+                <td><%= product.genre.name %></td>
+                <td>
+                  <% if product.is_status == true %>
+                    <P class="text-success font-weight-bold">販売中</p>
+                  <% else %>
+                    <P class="text-muted">販売停止中</p>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

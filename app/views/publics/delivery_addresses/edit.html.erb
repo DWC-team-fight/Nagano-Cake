@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>配送先編集</h3>
+        <%= form_with model: @delivery_address,method: :patch,local: true do |f| %>
+          <td>郵便番号</td>
+          <td><%= f.text_field :postal_code ,class: "form-control" %></td>
+          <td>住所</td>
+          <td><%= f.text_field :address,class: "form-control" %></td>
+          <td>宛名</td>
+          <td><%= f.text_field :recive_name,class: "form-control" %></td>
+          <td><%= f.submit "変更内容を保存", class:"btn btn-success mt-2" %></td>
+        <% end %>
+    </div>
+  </div>
+</div>

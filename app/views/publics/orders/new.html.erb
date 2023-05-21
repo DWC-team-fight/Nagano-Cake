@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <h3 class="ml-5">注文情報入力</h3>
+      
+      <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
+          <label><strong>支払方法</strong></label>
+          <div class="ml-2">
+            <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+            <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
+          </div>
+          <div class="ml-2">
+            <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+            <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%>
+          </div>
+          
+          <label><strong>お届け先</strong></label>
+            <table class="ml-2">
+              <tr>
+                <th>
+                  <%= f.radio_button :select_address, 0, checked: "checked" %>
+                  <%= f.label :address_number_1, "ご自身の住所" %>
+                </th>
+                <td>ここにログインユーザの住所を出力</td>
+              </tr>
+              <tr>
+                <th>
+                  <%= f.radio_button :select_address, 1 %>
+                  <%= f.label :address_number_2, "登録済み住所から選択" %>
+                </th>
+                <td class="px-0">
+                  <%= f.select :delivery_address_id, options_from_collection_for_select(DeliveryAddress.all, :id, :address_display) %>
+                </td>
+              </tr>
+            </table>
+            
+            <table class="ml-2">
+              <tr>
+                <th>
+                  <%= f.radio_button :select_address, 2 %>
+                  <%= f.label :address_number_3, "新しいお届け先" %><br>
+                </th>
+                <td>郵便番号</td>
+                <td><%= f.text_field :delivery_postal_code ,placeholder: "0000000 ハイフンなし",class: "form-control" %></td>
+              </tr>
+              <tr>
+                <th></th>
+                <td>住所</td>
+                <td><%= f.text_field :delivery_address,placeholder: "東京都中央区0-00-00",class: "form-control" %></td>
+              </tr>
+              <tr>
+                <th></th>
+                <td>宛名</td>
+                <td><%= f.text_field :delivery_name,placeholder: "平成照子",class: "form-control" %></td>
+              </tr>
+            </table>
+            
+            <div class="d-grid gap-2 col-6 mx-auto mt-3 text-center">
+              <%= f.submit '確認画面へ進む', class: "btn btn-primary" %>
+            </div>
+  
+      <% end %>
+    </div>
+  </div>
+</div>

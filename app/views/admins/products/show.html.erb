@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <h4 class="p-4">商品詳細</h4>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <% if @product.image.attached? %>
+        <%= image_tag @product.image, size: "200x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "200x200" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-9">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td>商品名</td>
+            <td><%= @product.name %></td>
+          </tr>
+
+          <tr>
+            <td>商品説明</td>
+            <td><%= @product.description %></td>
+          </tr>
+
+          <tr>
+            <td>ジャンル</td>
+            <td><%= @product.genre.name %></td>
+          </tr>
+
+          <tr>
+            <td>税込価格(税抜価格)</td>
+            <td>
+              <%= number_with_delimiter((@product.tax_excluded_price * 1.1).to_i, delimiter: ',') %>
+              (<%= number_with_delimiter(@product.tax_excluded_price.to_i, delimiter: ',') %>)
+              <span>円</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>販売ステータス</td>
+            <td>
+              <% if @product.is_status == true %>
+                <p class="text-success font-weight-bold">販売中</p>
+              <% else %>
+                <p class="text-muted">販売停止中</p>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <%= link_to "編集する", edit_admins_product_path(@product), class: "btn btn-success" %>
+  </div>
+</div>
