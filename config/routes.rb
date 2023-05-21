@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     password:       'publics/passwords',
     registrations:  'publics/registrations'
   }
+  
   # URL変更不可、ファイル構成変更不可
   scope module: 'publics' do
     # トップページ
