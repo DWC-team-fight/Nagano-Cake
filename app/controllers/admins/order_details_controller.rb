@@ -1,16 +1,20 @@
 class Admins::OrderDetailsController < ApplicationController
-  
+
   # before_action :authenticate_admin!
 
   def update
-    @order_detail=OrderDetail.find(params[:id])
-    @prder_detail.update(order_detail_params)
-    @order=Order.find(params[:order_id])
-    if @order.order_details.any? {|order_detail| order_detail.making_status=="in_production"}
-      order.update(order_status: 2)
-    elsif @order/prder_details.all?{|order_detail| order_detail.maiking_status=="production_completes"}
-      @order.update(order_status: 3)
-    end
+    order_detail =OrderDetail.find(params[:id])
+		order_detail.update(order_detail_params)
+
+		case order_detail.making_status
+		 when "製作中"
+			order_detail.order.update(order_status: "製作中")
+		 when "製作完了"
+			if order_detail.order.order_details.all?{|order_detail| order_detail.making_status == "製作完了"}
+				order_detail.order.update(order_status: "発送準備中")
+			end
+	  end
+
     redirect_to admin_order_path(params[:order_id])
       flash[:notice] = "製作ステータス更新しました"
 
