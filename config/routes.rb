@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show]
     # カート内商品について
     resources :cart_items, only: [:index, :update, :create, :destroy] do
-      delete 'destroy_all' => 'cart_items#destroy_all'
+      delete 'destroy_all', on: :collection    
     end
     # 注文画面について
     get 'orders/confirm' => 'orders#confirm'
