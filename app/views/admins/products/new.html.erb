@@ -5,7 +5,7 @@
         <h4>商品新規登録</h4>
       </div>
       <div class="col-11 offset-1">
-        <%=form_with model: @product, url:admins_products_path, local: true do |f| %>
+        <%=form_with model: @product, url: admins_products_path, local: true do |f| %>
           <div class="form-group row">
             <%= f.label :商品画像, class: 'col-md-3'%>
             <%= f.file_field :image, accept: "image/*" %>
@@ -18,7 +18,7 @@
 
           <div class="form-group row">
             <%= f.label :商品説明, class: 'col-md-3'%>
-            <%= f.text_area :explanation, class: 'col-md-5 form-control'%>
+            <%= f.text_area :description, class: 'col-md-5 form-control'%>
           </div>
 
           <div class="form-group row">
@@ -28,7 +28,7 @@
 
           <div class="form-group row">
             <%= f.label :税抜価格, class: 'col-md-3'%>
-            <%= f.text_field :price, class: 'col-md-5 form-control'%>
+            <%= f.text_field :tax_excluded_price, class: 'col-md-5 form-control'%>
             <span>円</span>
           </div>
 
@@ -38,10 +38,11 @@
             <p class="col-md-2"><%= f.radio_button :is_status, "false" %>販売停止</p>
           </div>
 
-          <div class="form-group col-md-3 offset-3">
-            <%= f.submit '新規登録', class: 'btn btn-success btn-lg' %>
+          <div class="form-group col-2 offset-4 mt-2">
+            <%= f.submit '新規保存', class: 'btn btn-success btn-lg' %>
           </div>
         <% end %>
       </div>
+    </div>
   </div>
 </div>

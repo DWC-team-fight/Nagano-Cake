@@ -38,9 +38,9 @@
             <td>販売ステータス</td>
             <td>
               <% if @product.is_status == true %>
-                <P class="text-success">販売中(太字にする)
+                <P class="text-success font-weight-bold">販売中</p>
               <% else %>
-                販売中止中
+                <P class="text-muted">販売停止中</p>
               <% end %>
             </td>
           </tr>
