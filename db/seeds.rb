@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 puts "-------------customer create------------"
 Customer.create!(
   first_name: "練習",
@@ -37,6 +38,12 @@ Order.create!(
 )
 
 puts "-------------product create------------"
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> origin/develop
 
 product1 = Product.create!(
  genre_id: 1,
@@ -134,6 +141,12 @@ DeliveryAddress.create!(
   postal_code: "2222222",
   address: "東京都文京区後楽1-3-61",
   recive_name: "東京三郎"
+)
+DeliveryAddress.create!(
+  customer_id: 1,
+  postal_code: "333333",
+  address: "東京都江戸川区豊洲0-0-00",
+  recive_name: "豊洲吾郎"
 )
 
 puts "-------------cart_item create------------"

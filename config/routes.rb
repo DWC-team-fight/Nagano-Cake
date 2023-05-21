@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     password:       'publics/passwords',
     registrations:  'publics/registrations'
   }
+  
   # URL変更不可、ファイル構成変更不可
   scope module: 'publics' do
     # トップページ
@@ -37,12 +38,14 @@ Rails.application.routes.draw do
     # 商品ページ
     resources :products, only: [:index, :show]
     # カート内商品について
-    resources :cart_items, only: [:index, :update, :create, :destroy]
-    delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'
+    resources :cart_items, only: [:index, :update, :create, :destroy] do
+      delete 'destroy_all' => 'cart_items#destroy_all'
+    end
     # 注文画面について
-    resources :orders, only:[:new, :index, :show,:update]
+    get 'orders/confirm' => 'orders#confirm'
     post 'orders/confirm' => 'orders#confirm'
-    get 'complete' => 'orders#complete'
+    get 'orders/complete' => 'orders#complete'
+    resources :orders, only:[:new, :index, :show, :update]
     # 配送先住所について
     resources :delivery_addresses, only:[:index, :edit, :create, :update, :destroy]
   end
