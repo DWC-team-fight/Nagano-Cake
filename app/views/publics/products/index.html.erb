@@ -5,14 +5,16 @@
     </div>
   </div>
   <div class="row mt-3 text-center text-xs-center text-sm-center text-md-left">
-    <% @products.each do |prodact| %>
+    <% @products.each do |product| %>
     <div class="col-xs-10 col-sm-10 col-md-6 col-lg-3">
       <div class="card w-100 bg-transparent border-0" style="width: 18rem;">
-          <p class="img-wrap"><%= image_tag product.get_image(180, 120) %></p>
+          <%= link_to products_path(product.id) do %>
+             <p class="img-wrap"><%= image_tag product.image, size: "180x130", fallback: "no_image.jpg" %></p>
+          <% end %>
        <div class="card-body">
-          <p class="prodact-details prodact-name card-text"><%= product.name %></p>
-          <% if product.is_active == true %>
-            <p class="prodact-details card-text">¥<%= (prodact.price * 1.08).to_i.to_s(:delimited, delimiter: ',') %></p>
+          <p class="product-details product-name card-text"><%= product.name %></p>
+          <% if product.is_status == true %>
+            <p class="product-details card-text">¥<%= (product.tax_excluded_price * 1.08).to_i.to_s(:delimited, delimiter: ',') %></p>
           <% else %>
             <p class="text-danger font-weight-bold card-text">売り切れ</p>
           <% end %>
