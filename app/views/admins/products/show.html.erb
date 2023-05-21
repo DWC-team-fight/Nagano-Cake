@@ -1,14 +1,19 @@
 <div class="container">
   <div class="row">
-    <h4 class="ml-3">商品詳細</h4>
+    <h4 class="p-4">商品詳細</h4>
   </div>
 
   <div class="row">
-    <div class="col-11 offset-1">
-      <div claas="col-md-3">
-        <p>画像挿入(未実装)</p>
-      </div>
-      <table class="table border: hidden;">
+    <div class="col-md-3">
+      <% if @product.image.attached? %>
+        <%= image_tag @product.image, size: "200x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "200x200" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-9">
+      <table class="table table-borderless">
         <tbody>
           <tr>
             <td>商品名</td>
@@ -38,9 +43,9 @@
             <td>販売ステータス</td>
             <td>
               <% if @product.is_status == true %>
-                <P class="text-success">販売中(太字にする)
+                <p class="text-success font-weight-bold">販売中</p>
               <% else %>
-                販売中止中
+                <p class="text-muted">販売停止中</p>
               <% end %>
             </td>
           </tr>
@@ -48,6 +53,7 @@
       </table>
     </div>
   </div>
+
   <div class="text-center">
     <%= link_to "編集する", edit_admins_product_path(@product), class: "btn btn-success" %>
   </div>
