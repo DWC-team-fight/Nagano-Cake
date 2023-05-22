@@ -30,6 +30,7 @@
           <td><%= delivery_address.recive_name %></td>
           <td>
             <%= link_to "編集する",edit_delivery_address_path(delivery_address),class:"btn btn-success" %>
+
             <%= link_to "削除する",delivery_address_path(delivery_address), method: :delete , data: {confirm:'本当に削除しますか？'}, class:"btn btn-danger" %>
           </td>
         </tr>
