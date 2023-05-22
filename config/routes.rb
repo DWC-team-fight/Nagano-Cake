@@ -28,40 +28,40 @@ Rails.application.routes.draw do
     password:       'publics/passwords',
     registrations:  'publics/registrations'
   }
-  
+
   # URL変更不可、ファイル構成変更不可
   scope module: 'publics' do
     # トップページ
-    root to:'homes#top'
+    root to: 'homes#top'
     # アバウトページ
     get 'about' => 'homes#about'
     # 商品ページ
     resources :products, only: [:index, :show]
     # カート内商品について
     resources :cart_items, only: [:index, :update, :create, :destroy] do
-      delete 'destroy_all', on: :collection    
+      delete 'destroy_all', on: :collection
     end
     # 注文画面について
     get 'orders/confirm' => 'orders#confirm'
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
-    resources :orders, only:[:new, :index, :show, :update]
+    resources :orders, only:[:new, :index, :show, :update, :create]
     # 配送先住所について
     resources :delivery_addresses, only:[:index, :edit, :create, :update, :destroy]
   end
 
 
 
-  namespace :publics do
+   scope :customers do
     # 顧客の会員登録関連
     resources :registrations, only: [:new, :create]
 
     # 顧客のページ関連
-    get 'show' => 'customers#show', as: 'customers/mypage'
-    get 'customers/edit' => 'customers#edit', as: 'customers/information/edit'
+    get 'mypage' => 'customers#show', as: 'customers/mypage'
+    get 'information/edit' => 'customers#edit', as: 'customers/information/edit'
     patch 'update' => 'customers#update', as: 'customers/information'
     get 'check' => 'customers#check'
-    patch 'customers/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
+    patch 'withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
   end
 
 

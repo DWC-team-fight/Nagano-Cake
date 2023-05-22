@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   
     # 消費税を求めるメソッド
   def with_tax_excluded_price
-    (tax_excluded_price * 1.1).floor
+    (tax_excluded_price * 1.08).floor
   end
 
 

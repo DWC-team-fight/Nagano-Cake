@@ -6,19 +6,20 @@ class Publics::CartItemsController < ApplicationController
 
   def create
     @cart_item = CartItem.new(cart_item_params)
+    @cart_item.customer_id = 1
     #カート内に同じ商品がある場合
-    if cart_items.find_by(product_id: params[:cart_item] [:product_id]).present?
-      cart_item = cart_items.find_by(product_id: params[:cart_item] [:product_id])
-      cart_item.quantity += params[:cart_item] [:quantity].to_i
-      cart_item.save
+    if CartItem.find_by(product_id: params[:cart_item] [:product_id]).present?
+      @cart_item = CartItem.find_by(product_id: params[:cart_item] [:product_id])
+      @cart_item.quantity += params[:cart_item] [:quantity].to_i
+      @cart_item.save
       redirect_to cart_items_path
     #カート内に同じ商品がない場合
     elsif @cart_item.save
-      @cart_items = cart_items.all
+      @cart_items = CartItem.all
       redirect_to cart_items_path
     #保存できなかった場合
     else
-      redirect_to request.referer
+    redirect_to request.referer
     end
   end
   

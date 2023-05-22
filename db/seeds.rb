@@ -126,7 +126,6 @@ OrderDetail.create!(
   order_id: 1,
   product_id: 1,
   quantity: 1,
-  product_order_status: 1,
   once_price: 1000
 )
 
