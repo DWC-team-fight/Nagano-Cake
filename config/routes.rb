@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     password:       'publics/passwords',
     registrations:  'publics/registrations'
   }
-  
+
   # URL変更不可、ファイル構成変更不可
   scope module: 'publics' do
     # トップページ
@@ -52,16 +52,15 @@ Rails.application.routes.draw do
 
 
 
-  namespace :publics do
-    # 顧客の会員登録関連
-    resources :registrations, only: [:new, :create]
-
-    # 顧客のページ関連
-    get 'show' => 'customers#show', as: 'customers/mypage'
-    get 'customers/edit' => 'customers#edit', as: 'customers/information/edit'
-    patch 'update' => 'customers#update', as: 'customers/information'
-    get 'check' => 'customers#check'
-    patch 'customers/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
+  scope :customers do
+  # 顧客の会員登録関連
+  resources :registrations, only: [:new, :create]
+  # 顧客のページ関連
+  get 'mypage' => 'customers#show', as: 'customers/mypage'
+  get 'information/edit' => 'customers#edit', as: 'customers/information/edit'
+  patch 'information' => 'customers#update', as: 'customers/information'
+  get 'check' => 'customers#check'
+  patch 'withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
   end
 
 

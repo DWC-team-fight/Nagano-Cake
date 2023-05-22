@@ -28,7 +28,7 @@ Genre.create!(name: "キャンディ")
 
 Order.create!(
   customer_id: 1,
-  shipping_fee: 500,
+  shopping_fee: 500,
   delivery_address: "東京都港区芝公園４丁目２−８",
   delivery_postal_code: "1111111",
   delivery_name: "配送二郎",
@@ -38,12 +38,6 @@ Order.create!(
 )
 
 puts "-------------product create------------"
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> origin/develop
 
 product1 = Product.create!(
  genre_id: 1,
@@ -54,6 +48,7 @@ product1 = Product.create!(
 product1.image.attach(io: File.open(Rails.root.join('app/assets/images/sample.jpeg')), filename: 'sample.jpeg')
 
 product2 = Product.create!(
+
   genre_id: 1,
   name: "ショートケーキ",
   description: "いちご",
@@ -119,7 +114,7 @@ product4.image.attach(io: File.open(Rails.root.join('app/assets/images/tartcake.
 puts "--------------order create-----------------"
 Order.create!(
   customer_id: 1,
-  shipping_fee: 800,
+  shopping_fee: 800,
   delivery_address: "東京都墨田区押上１丁目１−２",
   delivery_postal_code: "1310045",
   delivery_name: "墨田四郎",
@@ -157,7 +152,7 @@ CartItem.create!(
 )
 CartItem.create!(
   customer_id: 1,
-  product_id: 2,
+  product_id: 1,
   quantity: 5
 )
 

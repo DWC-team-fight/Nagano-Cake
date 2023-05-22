@@ -1,45 +1,38 @@
 class Publics::CustomersController < ApplicationController
+  # before_action :authenticate_customer!
   
   def show
-    @customer = Customer.find(params[:id])
-    if @customer.id != currnet_customer.id
-      redirect_to root_path
-    end
+    @customer = current_customer
   end
   
-  def create
-    @customer = Customer.new(customer_params)
-    @customer.save
-    redirect_to root_path
+  #登録情報へのアクション 
+  def edit
+  @customer = current_customer
 end
 
-def edit
-  @customer = Customer.find(paroms[:id])
-  if @customer.id != current_customer.id
-    redirect_to root_path
-end
-
+  # 登録情報の編集を保存するアクション
 def update
-  @customer = Customer.find(params[:id])
+  @customer = current_customer
   if @customer.update(customer_params)
-    if customer_signed_in?
       flash[:notice] = "登録情報が更新されました。"
-     redirect_to customer_path(current_customer)
+     redirect_to publics_customers_mypage
    else
-     redirect_to request.referrer
+     render 'edit'
    end
-  else
-    flash[:notice] = "項目を正しく記入してください"
-    redirect_to request.referrer
   end
-end
 
-def 
+# 退会アクション
+def withdraw
+   @customer = current_customer
+   @customer.update(is_customer_status: true)
+   reset_session
+   flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+   redirect_to root_path
 end
 
 
 private
 def customer_params
-   params.require(:customer).permit(:first_name, :last_name, :kana_first_name, :kana_last_name, :email, :postcode, :address, :phone_number, :is_valid, :reset_password_token, :password_confirmation)
+   params.require(:customer).permit(:first_name, :last_name, :kana_first_name, :kana_last_name, :email, :postcode, :address, :phone_number, :is_valid, :reset_password_token, :password_confirmation, :is_customer_status)
  end
 end

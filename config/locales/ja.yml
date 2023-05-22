@@ -12,5 +12,3 @@ ja: # 日本語の設定を行う
           shipping_preparation: "発送準備中"
           shipped: "発送済み"
           
-        status:
-          is_customer_status: 
