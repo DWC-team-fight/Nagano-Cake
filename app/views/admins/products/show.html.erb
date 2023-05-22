@@ -4,7 +4,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 mt-3">
       <% if @product.image.attached? %>
         <%= image_tag @product.image, size: "200x200" %>
       <% else %>
@@ -12,24 +12,21 @@
       <% end %>
     </div>
 
-    <div class="col-md-9">
-      <table class="table table-borderless">
+    <div class="col-md-8">
+      <table class="table table-borderless md-auto">
         <tbody>
           <tr>
             <td>商品名</td>
             <td><%= @product.name %></td>
           </tr>
-
           <tr>
             <td>商品説明</td>
             <td><%= @product.description %></td>
           </tr>
-
           <tr>
             <td>ジャンル</td>
             <td><%= @product.genre.name %></td>
           </tr>
-
           <tr>
             <td>税込価格(税抜価格)</td>
             <td>
@@ -38,7 +35,6 @@
               <span>円</span>
             </td>
           </tr>
-
           <tr>
             <td>販売ステータス</td>
             <td>
