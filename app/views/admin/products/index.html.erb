@@ -6,7 +6,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h4 class="py-3">商品一覧</h4>
           <div>
-            <%= link_to new_admins_product_path do %>
+            <%= link_to new_admin_product_path do %>
               <img src="/assets/plusicon.png" alt="商品登録画面のリンク" width="50" height="50">
             <% end %>
           </div>
@@ -25,7 +25,7 @@
             <% @products.each do |product| %>
               <tr>
                 <td><%= product.id %></td>
-                <td><%= link_to product.name, admins_product_path(product.id) %></td>
+                <td><%= link_to product.name, admin_product_path(product.id) %></td>
                 <td><%= number_with_delimiter(product.tax_excluded_price.to_i, delimiter: ',') %></td>
                 <td><%= product.genre.name %></td>
                 <td>
