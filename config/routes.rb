@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
   # 管理者側のルーティング
-  devise_for :admins, controllers: {
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   # ログイン、ログアウト関連
-    sessions:       'admins/sessions',
-  # パスワード
-    password:       'admins/passwords',
-  # 会員登録
-    registrations:  'admins/registrations'
+    sessions:       'admin/sessions',
   }
-  namespace :admins do
+
+  namespace :admin do
     # トップ（注文履歴一覧）
     root to:"homes#top"
     # 商品関連
@@ -23,12 +20,11 @@ Rails.application.routes.draw do
     resources :order_details, only: [:update]
   end
   # 顧客側のルーティング
-  devise_for :customers, controllers: {
+  devise_for :customers,skip: [:passwords], controllers: {
     sessions:       'publics/sessions',
-    password:       'publics/passwords',
     registrations:  'publics/registrations'
   }
-  
+
   # URL変更不可、ファイル構成変更不可
   scope module: 'publics' do
     # トップページ
@@ -39,7 +35,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show]
     # カート内商品について
     resources :cart_items, only: [:index, :update, :create, :destroy] do
-      delete 'destroy_all', on: :collection    
+      delete 'destroy_all', on: :collection
     end
     # 注文画面について
     get 'orders/confirm' => 'orders#confirm'
