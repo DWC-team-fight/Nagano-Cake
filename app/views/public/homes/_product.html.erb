@@ -1,14 +1,16 @@
-<div calss="col-md-3 col-sm-6">
-  <div class="card w-100 bg-transparent border-0" style="width:18rem;">
+<div class="col-md-3 col-sm-6">
+  <div class="card w-100 bg-transparent border-0" style="width: 18rem;">
     <%= link_to product_path(product) do %>
-      <div class="img-wrap"><%= image_tag (product.image, width: "100%", height: "200px",fallback: "no_image.jpg") %></div>
+      <div class="img-wrap" style="margin-bottom: 10px;">
+        <%= image_tag(product.image, width: "100%", height: "200px", fallback: "no_image.jpg") %>
+      </div>
     <% end %>
     <div class="card-body">
-      <p class="csrd-text"><%= product.name %></p>
-      <%= if product.is_status == true %>
-         <p class="card-text"><%= product.price %>円(税抜き)</p>
+      <p class="card-text"><%= product.name %></p>
+      <% if product.is_status == true %>
+        <p class="card-text"><%= product.tax_excluded_price %>円(税抜き)</p>
       <% else %>
-         <p class="card-text text-danger">販売停止中</p>
+        <p class="card-text text-danger">販売停止中</p>
       <% end %>
     </div>
   </div>
