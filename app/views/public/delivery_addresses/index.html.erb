@@ -30,8 +30,16 @@
           <td><%= delivery_address.recive_name %></td>
           <td>
             <%= link_to "編集する",edit_delivery_address_path(delivery_address),class:"btn btn-success" %>
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <%= link_to "削除する",delivery_address_path(delivery_address),method: "delete",data: {confirm:'本当に削除しました'}, class:"btn btn-danger" %>
+=======
+            <%= link_to "削除する",delivery_address_path(delivery_address), method: :delete , data: {confirm:'本当に削除しますか？'}, class:"btn btn-danger" %>
+>>>>>>> origin/develop
+=======
 
             <%= link_to "削除する",delivery_address_path(delivery_address), method: :delete , data: {confirm:'本当に削除しますか？'}, class:"btn btn-danger" %>
+>>>>>>> origin/develop
           </td>
         </tr>
         <% end %>

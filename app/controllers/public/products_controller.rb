@@ -1,5 +1,9 @@
 class Public::ProductsController < ApplicationController
   
+  def
+    
+  end
+  
   def index
     @total_products = Product.all
     @products = Product.all.page(params[:page]).per(8)
