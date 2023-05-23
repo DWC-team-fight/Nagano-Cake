@@ -26,16 +26,7 @@ Genre.create!(name: "焼き菓子")
 Genre.create!(name: "プリン")
 Genre.create!(name: "キャンディ")
 
-Order.create!(
-  customer_id: 1,
-  shopping_fee: 500,
-  delivery_address: "東京都港区芝公園４丁目２−８",
-  delivery_postal_code: "1111111",
-  delivery_name: "配送二郎",
-  total_amount: 1000,
-  payment_method: 1,
-  status: 1
-)
+
 
 puts "-------------product create------------"
 
@@ -122,12 +113,8 @@ Order.create!(
 )
 
 puts "-------------order_detail create------------"
-OrderDetail.create!(
-  order_id: 1,
-  product_id: 1,
-  quantity: 1,
-  once_price: 1000
-)
+
+
 
 puts "-------------delivery_address create------------"
 DeliveryAddress.create!(

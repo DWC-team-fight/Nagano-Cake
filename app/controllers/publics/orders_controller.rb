@@ -1,11 +1,13 @@
 class Publics::OrdersController < ApplicationController
-  
+
   def new
     @order = Order.new
   end
-  
+
   def confirm
     @order = Order.new(order_params)
+    @order.shopping_fee = 800
+    @total = 0
     if params[:order][:select_address] == "0"
       @order.delivery_postal_code = current_customer.postal_code
       @order.delivery_address = current_customer.address
@@ -22,7 +24,7 @@ class Publics::OrdersController < ApplicationController
     end
     @cart_items = CartItem.all
   end
-  
+
   #注文確定処理
   def create
     order = Order.new(order_params)
@@ -33,8 +35,8 @@ class Publics::OrdersController < ApplicationController
       order_detail = OrderDetail.new(
         order_id:           order.id,
         product_id:         cart_item.product.id,
-        once_price:         cart_item.product.once_price,
         quantity:           cart_item.quantity,
+        once_price:      (cart_item.product.tax_excluded_price*1.08).floor,
         product_order_status: 0 )
       order_detail.save
       cart_item.destroy
@@ -45,17 +47,17 @@ class Publics::OrdersController < ApplicationController
   def index
     @orders = Order.all.page(params[:page]).per(10)
   end
-  
+
   def show
     @order = Order.find(params[:id])
   end
 
 
   private
-  
+
   def order_params
-    params.require(:order).permit(:customer_id, :shipping_fee, :total_amount, :payment_method, 
+    params.require(:order).permit(:customer_id, :shipping_fee, :total_amount, :payment_method,
     :delivery_postal_code, :delivery_address, :delivery_name, :status)
   end
-  
+
 end

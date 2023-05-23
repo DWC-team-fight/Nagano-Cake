@@ -2,8 +2,7 @@
   <h3 class="ml-5">注文情報確認</h3>
   <div class="row">
     <div class="col-9">
-      
-      <% @合計金額 = 0 %>
+
       <table class="table table-striped">
         <thead>
           <tr>
@@ -21,26 +20,26 @@
               <td><%= cart_item.quantity %></td>
               <td><%= cart_item.subtotal.to_s(:delimited) %>円</td>
             </tr>
-            <% @合計金額 += cart_item.subtotal %>
+            <% @total += cart_item.subtotal %>
           <% end %>
         </tbody>
       </table>
     </div>
-  
+
     <div class="col-3">
       <table class="table table-striped">
         <tr>
           <th>送料</th>
-            <% delivery_fee = 800 %>
-            <td><%= delivery_fee %>円</td>
+            <td><%= @order.shopping_fee  %>円</td>
         </tr>
         <tr>
           <th>商品合計</th>
-          <td><%= @合計金額.to_s(:delimited) %>円</td>
+          <td><%= @total.to_s(:delimited) %>円</td>
         </tr>
         <tr>
           <th>請求金額</th>
-          <td><%= (@合計金額 + delivery_fee).to_s(:delimited) %>円</td>
+          <<%= @order.total_amount = @order.shopping_fee + @total %>
+          <td><%= @order.total_amount.to_s(:delimited) %>円</td>
         </tr>
       </table>
     </div>
@@ -66,6 +65,6 @@
         </div>
       <% end %>
     </div>
-    
+
   </div>
 </div>
