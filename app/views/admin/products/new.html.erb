@@ -6,7 +6,7 @@
         <h4>商品新規登録</h4>
       </div>
       <div class="col-11 offset-1">
-        <%=form_with model: @product, url: admins_products_path, local: true do |f| %>
+        <%=form_with model: @product, url: admin_products_path, local: true do |f| %>
           <div class="form-group row">
             <%= f.label :商品画像, :placeholder => "商品名",class: 'col-md-3'%>
             <%= f.file_field :image, accept: "image/*" %>
