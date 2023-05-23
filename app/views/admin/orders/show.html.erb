@@ -10,7 +10,7 @@
           <tr>
             <th class="col-xs-2">購入者</th>
             <td class="col-xs-10">
-              <%= link_to admins_customer_path(@order.customer.id) do %>
+              <%= link_to admin_customer_path(@order.customer.id) do %>
               <%= @order.customer.first_name %>
               <%= @order.customer.last_name %>
               <% end %>
@@ -40,7 +40,7 @@
           <tr>
             <th class="col-xs-'2">注文ステータス</th>
             <td class="col-xs-10">
-               <%= form_with model: @order, url: admins_order_path(@order.id), method: :patch, local: true do |f| %>
+               <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch, local: true do |f| %>
               <%= f.select :status,Order.statuses_i18n.invert,{class: "form-control" } %>
               <%= f.submit "更新", class: "btn btn-success" %>
               <% end %>
@@ -74,7 +74,7 @@
               <td><%= order_detail.quantity %></td>
               <td><%= (order_detail.once_price * order_detail.quantity).floor.to_s(:delimited,delimiter: ',') %></td>
               <td>
-                <%= form_with model: order_detail, url: admins_order_detail_path(order_detail.id) , method: :patch , local: true do |f| %>
+                <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id) , method: :patch , local: true do |f| %>
                 <%= f.select :product_order_status,OrderDetail.product_order_statuses_i18n.keys.map {|k| [I18n.t("enums.order_detail.product_order_status.#{k}"), k]} %>
                 <%= f.submit "更新", class: "btn btn-succsess" %>
                 <% end %>

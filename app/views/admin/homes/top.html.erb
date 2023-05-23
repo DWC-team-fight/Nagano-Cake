@@ -16,12 +16,12 @@
             <% @orders.each do |orders| %>
               <tr>
                 <td>
-                  <%= link_to admins_order_path(orders.id) do %>
+                  <%= link_to admin_order_path(orders.id) do %>
                     <%= orders.created_at.strftime('%Y/%m/%d %H:%M') %>
                   <% end %>
                 </td>
                 <td>
-                  <%= link_to admins_customers_path(orders.customer.id) do %>
+                  <%= link_to admin_customers_path(orders.customer.id) do %>
                     <%= orders.customer.first_name %><%= orders.customer.last_name %>
                   <% end %>
                 </td>
