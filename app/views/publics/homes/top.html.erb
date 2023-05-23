@@ -1,25 +1,29 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 me-auto">
-      <div class="text-center">
-
-        <p>
-          <span>Welcome Naganocake</span><br>
-          このサイトは、ケーキの販売のECサイトになります。<br>
-          会員でもない方も商品の観覧はできますが、<br>
-          購入には会員登録が必要になります。<br>
-        </p>
+    <div class="col-md-9">
+      <div class="text-center offset-3 mt-3">
+        <div style="position: relative; display: flex; justify-content: center; align-items: center;">
+          <img src="/assets/blue-cake.jpg" alt="ケーキの画像" style="width: 800px; height: 400px;">
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+            <p style="white-space: nowrap;">
+              <span>Welcome Naganocake</span><br>
+              このサイトは、ケーキの販売のECサイトになります。<br>
+              会員でもない方も商品の観覧はできますが、<br>
+              購入には会員登録が必要になります。<br>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container new-item">
+<div class="container mt-3">
   <h2>新着情報</h2>
   <div class="row">
     <% @products.first(4).each do |product| %>
-
+     <%= render partial: "publics/homes/product", locals: { product: product } %>
     <% end %>
   </div>
-
+  <div class="all-products-show-button"><%= link_to "全ての商品をみる", products_path %></div>
 </div>
