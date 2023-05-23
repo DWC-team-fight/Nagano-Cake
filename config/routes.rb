@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
   # 管理者側のルーティング
-  devise_for :admins, controllers: {
+  devise_for :admin, controllers: {
   # ログイン、ログアウト関連
-    sessions:       'admins/sessions',
-  # パスワード
-    password:       'admins/passwords',
-  # 会員登録
-    registrations:  'admins/registrations'
+    sessions:       'admin/sessions',
   }
-  namespace :admins do
+
+  namespace :admin do
     # トップ（注文履歴一覧）
     root to:"homes#top"
     # 商品関連
@@ -23,14 +20,13 @@ Rails.application.routes.draw do
     resources :order_details, only: [:update]
   end
   # 顧客側のルーティング
-  devise_for :customers, controllers: {
+  devise_for :customers,skip: [:passwords], controllers: {
     sessions:       'publics/sessions',
-    password:       'publics/passwords',
     registrations:  'publics/registrations'
   }
 
   # URL変更不可、ファイル構成変更不可
-  scope module: 'publics' do
+  scope module: 'public' do
     # トップページ
     root to:'homes#top'
     # アバウトページ
@@ -52,7 +48,7 @@ Rails.application.routes.draw do
 
 
 
-  namespace :publics do
+  namespace :public do
     # 顧客の会員登録関連
     resources :registrations, only: [:new, :create]
 
@@ -63,6 +59,7 @@ Rails.application.routes.draw do
     get 'check' => 'customers#check'
     patch 'customers/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
   end
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

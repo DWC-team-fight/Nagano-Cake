@@ -1,4 +1,4 @@
-class Publics::DeliveryAddressesController < ApplicationController
+class Public::DeliveryAddressesController < ApplicationController
   
   def index
     @delivery_addresses = DeliveryAddress.all

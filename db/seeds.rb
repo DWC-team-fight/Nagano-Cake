@@ -40,10 +40,10 @@ Order.create!(
 puts "-------------product create------------"
 
 product1 = Product.create!(
- genre_id: 1,
- name: "チョコケーキ",
- description: "甘い",
- tax_excluded_price: 400
+genre_id: 1,
+name: "チョコケーキ",
+description: "甘い",
+tax_excluded_price: 400
 )
 product1.image.attach(io: File.open(Rails.root.join('app/assets/images/sample.jpeg')), filename: 'sample.jpeg')
 
@@ -156,4 +156,16 @@ CartItem.create!(
   quantity: 5
 )
 
+puts "------------admin create----------------"
+Admin.create!(
+  # first_name: "午藤",
+  # last_name: "紅茶",
+  # first_name_kana: "ゴトウ",
+  # last_name_kana: "コウチャ",
+  # postal_code: "125-0052",
+  # address: "東京都葛飾区柴又７丁目１０−３",
+  # phone_number: "0000000000",
+  email: "admin@gmail.com",
+  password: "adminadmin"
+  )
 puts "----end----"

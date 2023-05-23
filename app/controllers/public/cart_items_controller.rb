@@ -1,4 +1,4 @@
-class Publics::CartItemsController < ApplicationController
+class Public::CartItemsController < ApplicationController
 
   def index
     @cart_items = CartItem.all
