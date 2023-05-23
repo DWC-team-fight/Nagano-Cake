@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # 管理者側のルーティング
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  devise_for :admin, controllers: {
   # ログイン、ログアウト関連
     sessions:       'admin/sessions',
   }
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   }
 
   # URL変更不可、ファイル構成変更不可
-  scope module: 'publics' do
+  scope module: 'public' do
     # トップページ
     root to:'homes#top'
     # アバウトページ
@@ -48,7 +48,7 @@ Rails.application.routes.draw do
 
 
 
-  namespace :publics do
+  namespace :public do
     # 顧客の会員登録関連
     resources :registrations, only: [:new, :create]
 
