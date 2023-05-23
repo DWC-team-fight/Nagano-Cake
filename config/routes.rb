@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show]
     # カート内商品について
     resources :cart_items, only: [:index, :update, :create, :destroy] do
-      delete 'destroy_all' => 'cart_items#destroy_all'
+      delete 'destroy_all', on: :collection
     end
     # 注文画面について
     get 'orders/confirm' => 'orders#confirm'
@@ -52,15 +52,16 @@ Rails.application.routes.draw do
 
 
 
-  scope :customers do
-  # 顧客の会員登録関連
-  resources :registrations, only: [:new, :create]
-  # 顧客のページ関連
-  get 'mypage' => 'customers#show', as: 'customers/mypage'
-  get 'information/edit' => 'customers#edit', as: 'customers/information/edit'
-  patch 'information' => 'customers#update', as: 'customers/information'
-  get 'check' => 'customers#check'
-  patch 'withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
+  namespace :publics do
+    # 顧客の会員登録関連
+    resources :registrations, only: [:new, :create]
+
+    # 顧客のページ関連
+    get 'show' => 'customers#show', as: 'customers/mypage'
+    get 'customers/edit' => 'customers#edit', as: 'customers/information/edit'
+    patch 'update' => 'customers#update', as: 'customers/information'
+    get 'check' => 'customers#check'
+    patch 'customers/withdrawal' => 'customers#withdrawal', as: 'customers_withdrawal'
   end
 
 
