@@ -11,4 +11,13 @@ ja: # 日本語の設定を行う
           in_progress: "製作中"
           shipping_preparation: "発送準備中"
           shipped: "発送済み"
-          
+
+
+      order_detail:
+        product_order_status:
+          impossible_work: "製作不可"
+          waiting_work: "製作待ち"
+          working: "制作中"
+          finish: "製作完了"
+
+
