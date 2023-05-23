@@ -1,17 +1,20 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 px-sm-0">
-      <h1>商品一覧</h1><h4>(全<%= @total_products.count %>件)</h4>
+    <div class="col-sm-12">
+      <h2 class="d-inline-block">商品一覧</h2>
+      <h5 class="d-inline-block ml-3">(全<%= @products.count %>件)</h5>
     </div>
   </div>
   <div class="row mt-3 text-center text-xs-center text-sm-center text-md-left">
     <% @products.each do |product| %>
     <div class="col-xs-10 col-sm-10 col-md-6 col-lg-3">
       <div class="card w-100 bg-transparent border-0" style="width: 18rem;">
-          <%= link_to product_path(product.id) do %>
-             <p class="img-wrap"><%= image_tag product.image, size: "180x130", fallback: "no_image.jpg" %></p>
-          <% end %>
-       <div class="card-body">
+        <%= link_to product_path(product) do %>
+          <div class="img-wrap" style="margin-bottom: 10px;">
+            <%= image_tag(product.image.presence || "no_image.jpg", width: "100%", height: "200px") %>
+          </div>
+        <% end %>
+        <div class="card-body">
           <p class="product-details product-name card-text"><%= product.name %></p>
           <% if product.is_status == true %>
             <p class="product-details card-text">¥<%= (product.tax_excluded_price * 1.08).to_i.to_s(:delimited, delimiter: ',') %></p>
@@ -20,10 +23,10 @@
           <% end %>
         </div>
       </div>
-     </div>
-     <% end %>
+    </div>
+    <% end %>
   </div>
-       <%= paginate(@products) %>
+  <%= paginate(@products) %>
 </div>
 
 
