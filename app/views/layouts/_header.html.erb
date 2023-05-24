@@ -1,11 +1,11 @@
-<header>
+<header style="width: 80%;">
   <div class="container">
     <div class="d-flex flex-row justify-content-between">
-      <nav class="nav navbar-nav">
-        <h1 class="sample">
+      <div class="col-md-3 offset-2">
+        <h1 class="sample" style="margin-top: 50px;">
           <%= link_to 'Nagano-Cake', root_path, html_options: { style: "font-family: Comic Sans MS; color: #99FFFF;" } %>
         </h1>
-      </nav>
+      </div>
       <nav class="navbar navbar-expand">
         <ul class="nav navbar-nav" style="margin-top: 30px;">
           <% if customer_signed_in? %>
@@ -67,3 +67,34 @@
     </div>
   </div>
 </header>
+
+<style>
+.nav-item {
+  position: relative;
+  display: inline-block;
+  background-color: white;
+  border: 1px solid black;
+  font-size: 14px;
+  padding: 5px 20px;
+  margin: 10px auto;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: black;
+  text-decoration: none !important;
+  box-shadow: 2px 2px 0 0 black;
+  border-radius: 7px;
+}
+
+.nav-item:hover {
+  box-shadow: 2px 2px 0 0 black;
+  border-radius: 7px;
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.container {
+  max-width: 80%;
+  padding: 0;
+}
+
+</style>

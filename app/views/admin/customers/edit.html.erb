@@ -2,9 +2,13 @@
   <div class="col-xs-10 col-xs-offset-1">
     <h2><%= @customer.first_name + @customer.last_name %>さんの会員情報編集</h2>
 
+<<<<<<< HEAD
     <%= render "layouts/errors", obj: @customer %>
 
     <%= form_with model:@customer,url:admin_customer_path(@customer.id) do |f| %>
+=======
+    <%= form_with model:@customer,url: admin_customer_path(@customer.id) do |f| %>
+>>>>>>> origin/develop
       <table class="row table">
         <tr>
           <th class="col-xs-2"><%= f.label :会員ID %></th>

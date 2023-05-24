@@ -98,12 +98,20 @@
 
           <tr>
             <td>送料</td>
+<<<<<<< HEAD
             <td><%= @order.shipping_fee.to_s(:delimited, delimiter: ',') %>円</td>
+=======
+            <td><%= @order.shopping_fee.to_s(:delimited, delimiter: ',') %></td>
+>>>>>>> origin/develop
           </tr>
 
           <tr>
             <td>請求合計金額</td>
+<<<<<<< HEAD
             <td><%= (@order.total_amount + @order.shipping_fee).to_s(:delimited, delimiter: ',') %>円</td>
+=======
+            <td><%= (@order.total_amount + @order.shopping_fee).to_s(:delimited, delimiter: ',') %></td>
+>>>>>>> origin/develop
           </tr>
         </tbody>
       </table>
