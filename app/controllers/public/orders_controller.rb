@@ -30,6 +30,7 @@ class Public::OrdersController < ApplicationController
       @order.delivery_name = params[:order][:delivery_name]
     end
     @cart_items = current_customer.cart_items
+    
   end
 
   #注文確定処理
@@ -70,5 +71,6 @@ class Public::OrdersController < ApplicationController
     params.require(:order).permit(:customer_id, :shopping_fee, :total_amount, :payment_method,
     :delivery_postal_code, :delivery_address, :delivery_name, :status)
   end
+
 
 end
