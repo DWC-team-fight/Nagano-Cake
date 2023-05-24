@@ -26,16 +26,17 @@ Genre.create!(name: "焼き菓子")
 Genre.create!(name: "プリン")
 Genre.create!(name: "キャンディ")
 
-Order.create!(
-  customer_id: 1,
-  shopping_fee: 500,
-  delivery_address: "東京都港区芝公園４丁目２−８",
-  delivery_postal_code: "1111111",
-  delivery_name: "配送二郎",
-  total_amount: 1000,
-  payment_method: 1,
-  status: 1
-)
+puts "-------------order create------------"
+# Order.create!(
+#   customer_id: 1,
+#   shopping_fee: 500,
+#   delivery_address: "東京都港区芝公園４丁目２−８",
+#   delivery_postal_code: "1111111",
+#   delivery_name: "配送二郎",
+#   total_amount: 1000,
+#   payment_method: 1,
+#   status: 1
+# )
 
 puts "-------------product create------------"
 
@@ -43,9 +44,11 @@ product1 = Product.create!(
 genre_id: 1,
 name: "チョコケーキ",
 description: "甘い",
-tax_excluded_price: 400
+tax_excluded_price: 500
 )
 product1.image.attach(io: File.open(Rails.root.join('app/assets/images/sample.jpeg')), filename: 'sample.jpeg')
+
+puts "-------------product2 create------------"
 
 product2 = Product.create!(
 
@@ -56,6 +59,7 @@ product2 = Product.create!(
 )
 product2.image.attach(io: File.open(Rails.root.join('app/assets/images/shortcake.jpeg')), filename: 'shortcake.jpeg')
 
+puts "-------------product3 create------------"
 
 product3 = Product.create!(
   genre_id: 1,
@@ -112,23 +116,23 @@ product4.image.attach(io: File.open(Rails.root.join('app/assets/images/tartcake.
 
 
 puts "--------------order create-----------------"
-Order.create!(
-  customer_id: 1,
-  shopping_fee: 800,
-  delivery_address: "東京都墨田区押上１丁目１−２",
-  delivery_postal_code: "1310045",
-  delivery_name: "墨田四郎",
+# Order.create!(
+#   customer_id: 1,
+#   shopping_fee: 800,
+#   delivery_address: "東京都墨田区押上１丁目１−２",
+#   delivery_postal_code: "1310045",
+#   delivery_name: "墨田四郎",
 
-)
+# )
 
 puts "-------------order_detail create------------"
-OrderDetail.create!(
-  order_id: 1,
-  product_id: 1,
-  quantity: 1,
-  product_order_status: 1,
-  once_price: 1000
-)
+# OrderDetail.create!(
+#   order_id: 1,
+#   product_id: 1,
+#   quantity: 1,
+#   product_order_status: 1,
+#   once_price: 1000
+# )
 
 puts "-------------delivery_address create------------"
 DeliveryAddress.create!(
@@ -145,16 +149,16 @@ DeliveryAddress.create!(
 )
 
 puts "-------------cart_item create------------"
-CartItem.create!(
-  customer_id: 1,
-  product_id: 1,
-  quantity: 3
-)
-CartItem.create!(
-  customer_id: 1,
-  product_id: 1,
-  quantity: 5
-)
+# CartItem.create!(
+#   customer_id: 1,
+#   product_id: 1,
+#   quantity: 3
+# )
+# CartItem.create!(
+#   customer_id: 1,
+#   product_id: 1,
+#   quantity: 5
+# )
 
 puts "------------admin create----------------"
 Admin.create!(

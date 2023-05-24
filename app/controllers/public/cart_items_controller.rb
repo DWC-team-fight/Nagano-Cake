@@ -1,27 +1,29 @@
 class Public::CartItemsController < ApplicationController
-
+  before_action :authenticate_customer!
+  
   def index
     @cart_items = CartItem.all
   end
 
   def create
-    @cart_item = CartItem.new(cart_item_params)
+    @cart_item = current_customer.cart_items.new(cart_item_params)
     #カート内に同じ商品がある場合
-    if cart_items.find_by(product_id: params[:cart_item] [:product_id]).present?
-      cart_item = cart_items.find_by(product_id: params[:cart_item] [:product_id])
-      cart_item.quantity += params[:cart_item] [:quantity].to_i
-      cart_item.save
+    if current_customer.cart_items.find_by(product_id: params[:cart_item] [:product_id]).present?
+      @cart_item = current_customer.cart_items.find_by(product_id: params[:cart_item] [:product_id])
+      @cart_item.quantity += params[:cart_item] [:quantity].to_i
+      @cart_item.save
       redirect_to cart_items_path
     #カート内に同じ商品がない場合
     elsif @cart_item.save
-      @cart_items = cart_items.all
+      @cart_items = current_customer.cart_items.all
       redirect_to cart_items_path
     #保存できなかった場合
     else
-      redirect_to request.referer
+    redirect_to request.referer
     end
   end
   
+  #個数変更
   def update
     @cart_item = CartItem.find(params[:id])
     @cart_item.update(cart_item_params)
@@ -35,7 +37,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items.all
     @cart_items.destroy_all
     redirect_to request.referer
   end
