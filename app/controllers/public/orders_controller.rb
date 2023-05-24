@@ -31,17 +31,6 @@ class Public::OrdersController < ApplicationController
     end
     @cart_items = current_customer.cart_items
     
-    #注文情報入力で、それぞれの住所が全て含まれているかを確認
-    if @order.delivery_postal_code && @order.delivery_address && @order.delivery_name && @order.payment_method
-      if @order.delivery_postal_code =~ /\A[0-9]{7}\z/
-        redirect_to orders_confirm_path
-      else 
-        redirect_to request.referer
-      end
-    else
-      redirect_to request.referer
-    end
-    
   end
 
   #注文確定処理
@@ -82,11 +71,6 @@ class Public::OrdersController < ApplicationController
     params.require(:order).permit(:customer_id, :shopping_fee, :total_amount, :payment_method,
     :delivery_postal_code, :delivery_address, :delivery_name, :status)
   end
-  
-  def order_params
-  params.require(:order).permit(:customer_id, :shipping_fee, :total_price, :pay_option,
-  :delivery_address_label, :delivery_address, :delivery_post_code, :order_status)
-end
 
 
 end
