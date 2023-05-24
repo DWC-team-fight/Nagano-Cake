@@ -1,6 +1,6 @@
 class Admin::OrderDetailsController < ApplicationController
 
-  # before_action :authenticate_admin!
+   before_action:　authenticate_admin!
 
   def update
     puts params[:id]
@@ -14,7 +14,7 @@ class Admin::OrderDetailsController < ApplicationController
           @order.update(status: 4)
         end
         flash[:notice] ="更新しました"
-        redirect_to admins_order_path(@order)
+        redirect_to admin_root_path(@order)
     else
       flash[:alert] ="失敗しました"
       render "admins/orders/show"

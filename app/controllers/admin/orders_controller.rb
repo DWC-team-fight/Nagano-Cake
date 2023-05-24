@@ -1,4 +1,5 @@
 class Admin::OrdersController < ApplicationController
+# 　before_action:authenticate_admin!
 
   def index
     @order=Order.find(params[:id])
@@ -18,7 +19,7 @@ class Admin::OrdersController < ApplicationController
     if @order.update(order_params)
       @order_details.update_all(product_order_status: 1)if @order.status == "payment_confirmation"
       flash[:notice] ="更新しました"
-      redirect_to admins_root_path(@order)
+      redirect_to admin_root_path(@order)
     else
       flash[:notice] ="失敗しました"
       render "show"
