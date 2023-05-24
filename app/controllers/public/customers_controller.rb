@@ -17,7 +17,7 @@ class Public::CustomersController < ApplicationController
         flash[:notice] = "登録情報が更新されました。"
       redirect_to public_customers_mypage_path
     else
-      render :edit
+      redirect_to root_path
     end
   end
 
