@@ -12,7 +12,7 @@
             <% if customer_signed_in? %>
               <!--顧客がログインしている場合-->
               <li style="font-family: serif; margin-top: 15px;">
-                ようこそ、<%= current_customer.last_name + current_customer.first_name %>さん！
+                ようこそ、<%= current_customer.first_name + current_customer.last_name %>さん！
               </li>
               <li><%=link_to "マイページ",public_customers_mypage_path,style: "font-family: serif; color: #000000;" %></li>
               <li><%=link_to "商品一覧",products_path,style: "font-family: serif; color: #000000;" %></li>
