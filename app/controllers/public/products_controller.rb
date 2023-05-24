@@ -13,6 +13,12 @@ class Public::ProductsController < ApplicationController
 
   private
   def products_params
+<<<<<<< HEAD
     params.require(:product).permit(:genle_id, :name, :introduction, :price, :is_status, :image_id, :image)
   end
+=======
+    params.require(:product).permit(:genre_id, :name, :introduction, :price, :is_status, :image_id, :image)
+  end
+  
+>>>>>>> origin/develop
 end

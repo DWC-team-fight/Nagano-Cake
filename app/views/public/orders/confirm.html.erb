@@ -2,8 +2,7 @@
   <h3 class="ml-5">注文情報確認</h3>
   <div class="row">
     <div class="col-9">
-      
-      <% @合計金額 = 0 %>
+
       <table class="table table-striped">
         <thead>
           <tr>
@@ -13,6 +12,7 @@
             <th>小計</th>
           </tr>
         </thead>
+        <% @total = 0 %>
         <tbody>
           <% @cart_items.each do |cart_item| %>
             <tr>
@@ -21,49 +21,54 @@
               <td><%= cart_item.quantity %></td>
               <td><%= cart_item.subtotal.to_s(:delimited) %>円</td>
             </tr>
-            <% @合計金額 += cart_item.subtotal %>
+            <% @total += cart_item.subtotal %>
           <% end %>
         </tbody>
       </table>
     </div>
-  
+
     <div class="col-3">
       <table class="table table-striped">
         <tr>
           <th>送料</th>
-            <% delivery_fee = 800 %>
-            <td><%= delivery_fee %>円</td>
+            <td><%= @order.shopping_fee  %>円</td>
         </tr>
         <tr>
           <th>商品合計</th>
-          <td><%= @合計金額.to_s(:delimited) %>円</td>
+          <td><%= @total.to_s(:delimited) %>円</td>
         </tr>
         <tr>
           <th>請求金額</th>
-          <td><%= (@合計金額 + delivery_fee).to_s(:delimited) %>円</td>
+          <% @order.total_amount = @order.shopping_fee + @total.to_i %>
+          <td><%= @order.total_amount.to_s(:delimited) %>円</td>
         </tr>
       </table>
     </div>
+    
     <div class="col-6">
       <h5>支払方法</h5>
       <p><%= @order.payment_method_i18n %></p>
     </div>
     <div class="col-6">
       <h5>お届け先</h5>
+      <p>〒<%= @order.delivery_postal_code %></p>
       <p><%= @order.delivery_address %></p>
+      <p><%= @order.delivery_name %></p>
     </div>
-    
-    <%= form_with model: @order, url: orders_complete_path, method: :get, local: true do |f| %>
-     <!-- f.hidden_field :customer_id, value: current_customer.id -->
-     <%= f.hidden_field :delivery_fee %>
-     <%= f.hidden_field :total_amount %>
-     <%= f.hidden_field :payment_method %>
-     <%= f.hidden_field :delivery_name %>
-     <%= f.hidden_field :delivery_address %>
-     <%= f.hidden_field :delivery_postal_code %>
-     <%= f.hidden_field :status, {value: 'wait_payment'} %>
-    <%= f.submit "注文を確定する", class: "btn btn-success" %>
-   <% end %>
-    
+    <div class="col-12 text-center">
+      <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+        <%= f.hidden_field :shopping_fee %>
+        <%= f.hidden_field :total_amount %>
+        <%= f.hidden_field :payment_method %>
+        <%= f.hidden_field :delivery_name %>
+        <%= f.hidden_field :delivery_address %>
+        <%= f.hidden_field :delivery_postal_code %>
+        <%= f.hidden_field :status, {value: 'payment_pending'} %>
+        <div class="mt-4">
+          <%= f.submit "注文を確定する", class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+
   </div>
 </div>
