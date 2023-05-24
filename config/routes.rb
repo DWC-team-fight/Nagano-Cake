@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   end
   # 顧客側のルーティング
   devise_for :customers,skip: [:passwords], controllers: {
-    sessions:       'publics/sessions',
-    registrations:  'publics/registrations'
+    sessions:       'public/sessions',
+    registrations:  'public/registrations'
   }
 
   # URL変更不可、ファイル構成変更不可
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
     get 'orders/confirm' => 'orders#confirm'
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
-    resources :orders, only:[:new, :index, :show, :update]
+    resources :orders, only:[:new, :index, :show, :update, :create]
     # 配送先住所について
     resources :delivery_addresses, only:[:index, :edit, :create, :update, :destroy]
   end

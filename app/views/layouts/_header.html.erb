@@ -14,8 +14,8 @@
               <li style="font-family: serif; margin-top: 15px;">
                 ようこそ、<%= current_customer.last_name + current_customer.first_name %>さん！
               </li>
-              <li><%=link_to "マイページ",customers_show_path,style: "font-family: serif; color: #000000;" %></li>
-              <li><%=link_to "商品一覧",produts_path,style: "font-family: serif; color: #000000;" %></li>
+              <li><%=link_to "マイページ",public_customers_mypage_path,style: "font-family: serif; color: #000000;" %></li>
+              <li><%=link_to "商品一覧",products_path,style: "font-family: serif; color: #000000;" %></li>
               <li style="font-family: serif; margin-top: 15px; color: #696969;">|</li>
               <li><%=link_to "カート",cart_items_path,style: "font-family: serif; color: #000000;" %></li>
               <li style="font-family: serif; margin-top: 15px; color: #696969;">|</li>
