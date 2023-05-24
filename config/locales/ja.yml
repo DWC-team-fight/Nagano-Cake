@@ -26,6 +26,8 @@ ja: # 日本語の設定を行う
           postal_code: "郵便番号"
           address: "住所"
           recive_name: "宛名"
+        genre:
+          name: "ジャンル名"
       errors:
         messages:
           blank: "を入力してください"
