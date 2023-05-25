@@ -10,13 +10,13 @@
           <div class="col">
             <div class="field">
               <%= f.label :名前（姓）%>
-              <%= f.text_field :first_name, autofocus: true, class:"form-control" %>
+              <%= f.text_field :first_name, autofocus: true,placeholder: "令和", class:"form-control" %>
             </div>
           </div>
           <div class="col">
             <div class="field">
               <%= f.label :名前（名） %>
-              <%= f.text_field :last_name, class:"form-control" %>
+              <%= f.text_field :last_name, placeholder: "道子",class:"form-control" %>
             </div>
           </div>
         </div>
@@ -24,31 +24,36 @@
         <div class="row">
           <div class="col">
             <div class="field">
-              <%= f.label :フリガナ（姓） %>
-              <%= f.text_field :first_name_kana, autofocus: true, class:"form-control" %>
+              <%= f.label :フリガナ（セイ） %>
+              <%= f.text_field :first_name_kana, placeholder: "レイワ", class:"form-control" %>
             </div>
           </div>
           <div class="col">
             <div class="field">
-              <%= f.label :フリガナ（名） %>
-              <%= f.text_field :last_name_kana, class:"form-control" %>
+              <%= f.label :フリガナ（メイ） %>
+              <%= f.text_field :last_name_kana,placeholder: "ミチコ", class:"form-control" %>
             </div>
           </div>
         </div>
 
         <div class="field">
           <%= f.label :メールアドレス %><br />
-          <%= f.email_field :email, autocomplete: "email", class:"form-control" %>
+          <%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com",class:"form-control" %>
         </div>
         
         <div class="field">
           <%= f.label :郵便番号（ハイフンなし） %><br />
-          <%= f.text_field :postal_code,  class:"form-control" %>
+          <%= f.text_field :postal_code, placeholder: "0000000", class:"form-control" %>
         </div>
         
         <div class="field">
           <%= f.label :住所 %><br />
-          <%= f.text_field :address,  class:"form-control" %>
+          <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class:"form-control" %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :電話番号（ハイフンなし） %><br />
+          <%= f.text_field :phone_number, placeholder: "00000000000", class:"form-control" %>
         </div>
 
         <div class="field">
@@ -65,7 +70,7 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "新規会員登録", class:"btn btn-success" %>
+          <%= f.submit "新規会員登録", class:"btn btn-success mt-2" %>
         </div>
       <% end %>
 
