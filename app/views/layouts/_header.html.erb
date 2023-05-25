@@ -17,75 +17,75 @@
                 ようこそ、<%= current_customer.first_name %>さん！
               </p>
             </li>
-            <li class="nav-item">
-              <a href="<%= public_customers_mypage_path %>" class="nav-link" style="font-family: serif; color: #000000; text-decoration: none;">
+              <%= link_to public_customers_mypage_path, class:"nav-link" , style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">                
                 マイページ
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<%= products_path %>" class="nav-link" style="font-family: serif; color: #000000; text-decoration: none;">
+              </li>
+              <% end %>
+              <%= link_to products_path, class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">                
                 商品一覧
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<%= cart_items_path %>" class="nav-link" style="font-family: serif; color: #000000; text-decoration: none;">
+              </li>
+              <% end %>
+              <%= link_to cart_items_path,class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">                
                 カート
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<%= destroy_customer_session_path %>" data-method="delete" class="nav-link" style="font-family: serif; color: #000000; text-decoration: none;">
+              </li>
+              <% end %>
+              <%= link_to destroy_customer_session_path, method: :delete, class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">                
                 ログアウト
-              </a>
-            </li>
+              </li>
+              <% end %>
           <% elsif admin_signed_in? %>
             <!-- 管理者がログインしている場合 -->
-            <li class="nav-item">
-              <a href="<%= admin_products_path %>" class="nav-link button" style="font-family: serif; color: #000000; text-decoration: none;">
+              <%= link_to admin_products_path, class:"nav-link button", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">                
                 商品一覧
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<%= admin_customers_path %>" class="nav-link button" style="font-family: serif; color: #000000; text-decoration: none;">
+              </li>
+              <% end %>
+              <%= link_to admin_customers_path ,class:"nav-link button", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">                
                 会員一覧
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<%= admin_root_path %>" class="nav-link button" style="font-family: serif; color: #000000; text-decoration: none;">
+              </li>
+              <% end %>
+              <%= link_to admin_root_path, class:"nav-link button", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">                
                 注文履歴一覧
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<%= admin_genres_path %>" class="nav-link button" style="font-family: serif; color: #000000; text-decoration: none;">
+              </li>
+              <% end %>
+              <%= link_to admin_genres_path ,class:"nav-link button", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">                
                 ジャンル一覧
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<%= destroy_admin_session_path %>" data-method="delete" class="nav-link button" style="font-family: serif; color: #000000; text-decoration: none;">
+              </li>
+              <% end %>
+              <%= link_to destroy_admin_session_path ,method: :delete, class:"nav-link button" ,style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">                
                 ログアウト
-              </a>
-            </li>
+              </li>              
+              <% end %>
           <% else %>
             <!-- ログインしていない場合 -->
-            <li class="nav-item">
-              <a href="<%= about_path %>" class="nav-link" style="font-family: serif; color: #000000; text-decoration: none;">
+              <%= link_to about_path , class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">                
                 About
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<%= products_path %>" class="nav-link" style="font-family: serif; color: #000000; text-decoration: none;">
+              </li>
+              <% end %>
+              <%= link_to products_path ,class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">                
                 商品一覧
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<%= new_customer_registration_path %>" class="nav-link" style="font-family: serif; color: #000000; text-decoration: none;">
+              </li>
+              <% end %>
+              <%= link_to new_customer_registration_path ,class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">                
                 新規登録
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<%= new_customer_session_path %>" class="nav-link" style="font-family: serif; color: #000000; text-decoration: none;">
+              </li>
+              <% end %>
+              <%= link_to new_customer_session_path ,class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
+              <li class="nav-item">                
                 ログイン
-              </a>
-            </li>
+              </li>
+              <% end %>
           <% end %>
         </ul>
       </nav>
@@ -113,7 +113,7 @@
   border-radius: 7px;
 }
 
-.nav-item:hover {
+.nav-item:active {
   box-shadow: 2px 2px 0 0 black;
   border-radius: 7px;
   transform: translate(2px, 2px);

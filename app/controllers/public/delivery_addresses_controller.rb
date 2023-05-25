@@ -13,8 +13,6 @@ class Public::DeliveryAddressesController < ApplicationController
     if @delivery_address.save
       redirect_to request.referer
     else
-      @customer = current_customer
-      @delivery_addresses = @customer.delivery.addresses.all
       render :index
     end
   end
