@@ -6,16 +6,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
 
   <% if customer_signed_in? %>
-    <body id="wrapper" style="background-color: white; font-family: serif; color: #000000;">
+    <body id="wrapper" style="background-color: rgb(227, 244, 244); font-family: serif; color: #000000;">
       <!--ヘッダー-->
       <div id="header">
-        <%=render "layouts/header" %>
+        <%= render "layouts/header" %>
       </div>
 
       <!--body部分-->
@@ -49,7 +50,7 @@
     </body>
 
     <% else %>
-    <body id="wrapper" style="background-color: white; font-family: serif; color: #000000;">
+    <body id="wrapper" style="background-color: rgb(210, 233, 233); font-family: serif; color: #000000;">
         <!--header-->
       <div id="header">
         <%=render "layouts/header" %>

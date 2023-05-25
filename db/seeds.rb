@@ -7,18 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-puts "-------------customer create------------"
-Customer.create!(
-  first_name: "練習",
-  last_name: "太郎",
-  first_name_kana: "レンシュウ",
-  last_name_kana: "タロウ",
-  postal_code: "0000000",
-  address: "千代田区永田町１丁目７−１",
-  phone_number: "0000000000",
-  email: "test@gmail.com",
-  password: "testtest"
-)
 
 puts "-------------genre create------------"
 Genre.create!(name: "ケーキ")
@@ -61,14 +49,15 @@ product2.image.attach(io: File.open(Rails.root.join('app/assets/images/shortcake
 
 puts "-------------product3 create------------"
 
-product3 = Product.create!(
-  genre_id: 1,
-  name: "チーズケーキ",
-  description: "濃厚",
-  tax_excluded_price: 400
-)
-product3.image.attach(io: File.open(Rails.root.join('app/assets/images/cheesecake.jpeg')), filename: 'cheesecake.jpeg')
+# product3 = Product.create!(
+#   genre_id: 1,
+#   name: "チーズケーキ",
+#   description: "濃厚",
+#   tax_excluded_price: 400
+# )
+# product3.image.attach(io: File.open(Rails.root.join('app/assets/images/cheesecake.jpeg')), filename: 'cheesecake.jpeg')
 
+puts "-------------product4 create------------"
 
 product4 = Product.create!(
   genre_id: 1,
@@ -135,12 +124,12 @@ puts "-------------order_detail create------------"
 # )
 
 puts "-------------delivery_address create------------"
-DeliveryAddress.create!(
-  customer_id: 1,
-  postal_code: "2222222",
-  address: "東京都文京区後楽1-3-61",
-  recive_name: "東京三郎"
-)
+# DeliveryAddress.create!(
+#   customer_id: 1,
+#   postal_code: "2222222",
+#   address: "東京都文京区後楽1-3-61",
+#   recive_name: "東京三郎"
+# )
 
 puts "-------------cart_item create------------"
 # CartItem.create!(
