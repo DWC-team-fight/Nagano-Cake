@@ -141,12 +141,6 @@ DeliveryAddress.create!(
   address: "東京都文京区後楽1-3-61",
   recive_name: "東京三郎"
 )
-DeliveryAddress.create!(
-  customer_id: 1,
-  postal_code: "333333",
-  address: "東京都江戸川区豊洲0-0-00",
-  recive_name: "豊洲吾郎"
-)
 
 puts "-------------cart_item create------------"
 # CartItem.create!(
