@@ -1,41 +1,67 @@
-<div class="row">
-  <div class="col-xs-12">
-    <h3><strong>登録情報編集</strong></h3>
-    <%= form_with(model:@customer, url: public_customers_information_path ,method: :PATCH) do |f| %>
-    <div>
-      <div class="col-xs-12">
-        <%= f.label :"氏名", class: "col-sm-3 control-label", style: "marigin: 10px;" %>
-        <%= f.text_field :last_name, class:"last_name cok-sm-3 form-control-static name", style: "marigin: 10px;" %>
-        <%= f.text_field :first_name, class:"first_name col-sm-3 form-control-static name", style: "margin: 10px;" %>
-      </div>
-      <div class="col-xs-12">
-        <%= f.label :"フリガナ", class: "col-sm-3 control-label", style: "margin: 10px;" %>
-        <%= f.text_field :last_name_kana, class: "last_name_kana col-sm-3 form-control-static name", style: "margin: 10px;" %>
-        <%= f.text_field :first_name_kana, class: "first_name_kana col-sm-3 form-control-static name", style: "margin: 10px;" %>
-      </div>
-      <div class="col-xs-12">
-        <%= f.label :"メールアドレス", class: "col-sm-3 control-label", style: "margin: 10px;" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-6 form-control-static", style: "margin: 10px;" %>
-      </div>
-      <div class="col-xs-12">
-        <%= f.label :"郵便番号", class: "col-sm-3 control-label", style: "margin: 10px;" %>
-        <%= f.text_field :postal_code, class: "col-sm-2 form-control-static", style: "margin: 10px;" %>
-      </div>
-      <div class="col-xs-12">
-        <%= f.label :"住所", class: "col-sm-3 control-label", style: "margin: 10px;" %>
-        <%= f.text_field :address, class: "col-sm-8 form-control-static", style: "margin: 10px;" %>
-      </div>
-      <div class="col-xs-12">
-        <%= f.label :"電話番号(ハイフンなし)", class: "col-sm-3 control-label", style: "margin: 10px;" %>
-        <%= f.text_field :phone_number, class: "col-sm-2 form-control-static", style: "margin: 10px;" %>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+      <h3><strong>登録情報編集</strong></h3>
+
+      <%= form_with(model:@customer, url: public_customers_information_path ,method: :PATCH) do |f| %>
+            <div class="row">
+          <div class="col">
+            <div class="field">
+              <%= f.label :名前（姓）%>
+              <%= f.text_field :first_name, autofocus: true,placeholder: "令和", class:"form-control" %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="field">
+              <%= f.label :名前（名） %>
+              <%= f.text_field :last_name, placeholder: "道子",class:"form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="field">
+              <%= f.label :フリガナ（セイ） %>
+              <%= f.text_field :first_name_kana, placeholder: "レイワ", class:"form-control" %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="field">
+              <%= f.label :フリガナ（メイ） %>
+              <%= f.text_field :last_name_kana,placeholder: "ミチコ", class:"form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= f.label :メールアドレス %><br />
+          <%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com",class:"form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :郵便番号（ハイフンなし） %><br />
+          <%= f.text_field :postal_code, placeholder: "0000000", class:"form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :住所 %><br />
+          <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class:"form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :電話番号（ハイフンなし） %><br />
+          <%= f.text_field :phone_number, placeholder: "00000000000", class:"form-control" %>
+        </div>
+        <div class="actions">
+          <td><%= f.submit "編集内容を保存する", class: "btn btn-primary mt-10" %></td>
+          <td><%= link_to "退会する",  public_check_path, class: "btn btn-danger", style: "margin: 10px" %></td>
+        </div>
+
+    <% end %>
+
     </div>
-    <div class="actions col-xs-10 col-xs-offset-2">
-    <p>
-      <%= f.submit "編集内容を保存する", class: "btn btn-primary col-sm-3", style: "margin: 10px;" %>
-      <%= link_to "退会する",  public_check_path,class: "glyphicon glyphicon-tint btn btn-danger col-sm-3", style: "margin: 10px;" %>
-    </p>
-    </div>
-  <% end %>
   </div>
 </div>
+
+
