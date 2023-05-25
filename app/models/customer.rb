@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :delivery_addresses, dependent: :destroy
+
   
   validates :postal_code, presence:true, format: {with: /\A[0-9]{7}\z/}
   validates :first_name,presence:true
