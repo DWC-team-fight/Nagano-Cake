@@ -57,7 +57,7 @@
     </div>
     
     <div class="col-12 text-center">
-      <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+      <%= form_with model: @order, url: orders_path, method: :post do |f| %>
         <%= f.hidden_field :shopping_fee %>
         <%= f.hidden_field :total_amount %>
         <%= f.hidden_field :payment_method %>

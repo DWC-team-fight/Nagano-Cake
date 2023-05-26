@@ -19,71 +19,71 @@
             </li>
               <%= link_to public_customers_mypage_path, class:"nav-link" , style:"font-family: serif; color: #000000; text-decoration: none;" do %>
               <li class="nav-item">                
-                マイページ
+                <i class="fas fa-user fa-fw fa-lg "></i> マイページ
               </li>
               <% end %>
               <%= link_to products_path, class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
               <li class="nav-item">                
-                商品一覧
+                <i class="fas fa-birthday-cake"></i> 商品一覧
               </li>
               <% end %>
               <%= link_to cart_items_path,class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
-              <li class="nav-item">                
-                カート
+              <li class="nav-item ">                
+                <i class="fas fa-cart-arrow-down"></i> カート
               </li>
               <% end %>
               <%= link_to destroy_customer_session_path, method: :delete, class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
               <li class="nav-item">                
-                ログアウト
+                <i class="fas fa-sign-out-alt"></i> ログアウト
               </li>
               <% end %>
           <% elsif admin_signed_in? %>
             <!-- 管理者がログインしている場合 -->
               <%= link_to admin_products_path, class:"nav-link button", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
               <li class="nav-item">                
-                商品一覧
+                <i class="fas fa-birthday-cake"></i> 商品一覧
               </li>
               <% end %>
               <%= link_to admin_customers_path ,class:"nav-link button", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
               <li class="nav-item">                
-                会員一覧
+                <i class="fas fa-users fa-fw fa-lg "></i> 会員一覧
               </li>
               <% end %>
               <%= link_to admin_root_path, class:"nav-link button", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
               <li class="nav-item">                
-                注文履歴一覧
+                <i class="fas fa-yen-sign fa-fw fa-lg "></i> 注文履歴一覧
               </li>
               <% end %>
               <%= link_to admin_genres_path ,class:"nav-link button", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
               <li class="nav-item">                
-                ジャンル一覧
+                <i class="fas fa-check fa-fw fa-lg "></i> ジャンル一覧
               </li>
               <% end %>
               <%= link_to destroy_admin_session_path ,method: :delete, class:"nav-link button" ,style:"font-family: serif; color: #000000; text-decoration: none;" do %>
               <li class="nav-item">                
-                ログアウト
+                <i class="fas fa-sign-out-alt"></i> ログアウト
               </li>              
               <% end %>
           <% else %>
             <!-- ログインしていない場合 -->
               <%= link_to about_path , class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
               <li class="nav-item">                
-                About
+                <i class="far fa-thumbs-up fa-fw fa-lg faa-tada animated"></i> About
               </li>
               <% end %>
               <%= link_to products_path ,class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
               <li class="nav-item">                
-                商品一覧
+                <i class="fas fa-birthday-cake"></i> 商品一覧
               </li>
               <% end %>
               <%= link_to new_customer_registration_path ,class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
               <li class="nav-item">                
-                新規登録
+                <i class="fas fa-user-plus"></i> 新規登録
               </li>
               <% end %>
               <%= link_to new_customer_session_path ,class:"nav-link", style:"font-family: serif; color: #000000; text-decoration: none;" do %>
               <li class="nav-item">                
-                ログイン
+                <i class="fas fa-sign-in-alt"></i> ログイン
               </li>
               <% end %>
           <% end %>
@@ -91,7 +91,7 @@
       </nav>
     </div>
     <div class="d-flex flex-row justify-content-end">
-      <%= render 'layouts/search' %>
+      <%= render 'layouts/search' , products: @product %>
     </div>
   </div>
 </header>

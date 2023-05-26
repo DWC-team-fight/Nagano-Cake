@@ -31,7 +31,7 @@ puts "-------------product create------------"
 product1 = Product.create!(
 genre_id: 1,
 name: "チョコケーキ",
-description: "甘い",
+description: "程よい甘さが特徴です",
 tax_excluded_price: 550
 )
 product1.image.attach(io: File.open(Rails.root.join('app/assets/images/sample.jpeg')), filename: 'sample.jpeg')
@@ -42,7 +42,7 @@ product2 = Product.create!(
 
   genre_id: 1,
   name: "ショートケーキ",
-  description: "いちご",
+  description: "定番のケーキです",
   tax_excluded_price: 500
 )
 product2.image.attach(io: File.open(Rails.root.join('app/assets/images/shortcake.jpeg')), filename: 'shortcake.jpeg')
@@ -71,7 +71,7 @@ puts "-------------product3 create------------"
 product5 = Product.create!(
   genre_id: 1,
   name: "モンブランケーキ",
-  description: "栗が濃厚",
+  description: "栗が濃厚です",
   tax_excluded_price: 600
 )
 product5.image.attach(io: File.open(Rails.root.join('app/assets/images/montoblanccake.jpeg')), filename: 'montoblanccake.jpeg')
@@ -88,7 +88,7 @@ product5.image.attach(io: File.open(Rails.root.join('app/assets/images/montoblan
 
 product7 = Product.create!(
   genre_id: 1,
-  name: "ホールケーキ",
+  name: "いちごのホールケーキ",
   description: "お誕生日にどうぞ",
   tax_excluded_price: 3000
 )
