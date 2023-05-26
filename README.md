@@ -9,21 +9,21 @@
 ※実際のECサイトではございません。
 
 ## メンバー
-かとぅー
-たけ
-ちーちゃん
-てるてる
+- かとぅー
+- たけ
+- ちーちゃん
+- てるてる
 ##  使用している言語とフレームワークとGemのバージョン
 
-Ruby 3.1.2
-Ruby on Rails 6.1.7.3
-bootstrap 4.5
-devise
-kaminari 1.2.1
-Font Awesome
-active strage
-enum
-pry rails
+- Ruby 3.1.2
+- Ruby on Rails 6.1.7.3
+- bootstrap 4.5
+- devise
+- kaminari 1.2.1
+- Font Awesome
+- active strage
+- enum
+- pry rails
 
 
 ## 機能
