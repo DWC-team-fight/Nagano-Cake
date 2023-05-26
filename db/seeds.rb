@@ -32,7 +32,7 @@ product1 = Product.create!(
 genre_id: 1,
 name: "チョコケーキ",
 description: "甘い",
-tax_excluded_price: 500
+tax_excluded_price: 550
 )
 product1.image.attach(io: File.open(Rails.root.join('app/assets/images/sample.jpeg')), filename: 'sample.jpeg')
 
@@ -43,7 +43,7 @@ product2 = Product.create!(
   genre_id: 1,
   name: "ショートケーキ",
   description: "いちご",
-  tax_excluded_price: 400
+  tax_excluded_price: 500
 )
 product2.image.attach(io: File.open(Rails.root.join('app/assets/images/shortcake.jpeg')), filename: 'shortcake.jpeg')
 
@@ -57,24 +57,24 @@ puts "-------------product3 create------------"
 # )
 # product3.image.attach(io: File.open(Rails.root.join('app/assets/images/cheesecake.jpeg')), filename: 'cheesecake.jpeg')
 
-puts "-------------product4 create------------"
+# puts "-------------product4 create------------"
 
-product4 = Product.create!(
-  genre_id: 1,
-  name: "タルトケーキ",
-  description: "いちごとマッチ！",
-  tax_excluded_price: 400
-)
-product4.image.attach(io: File.open(Rails.root.join('app/assets/images/tartcake.jpeg')), filename: 'tartcake.jpeg')
-
-
-# product5 = Product.create!(
+# product4 = Product.create!(
 #   genre_id: 1,
-#   name: "モンブランケーキ",
-#   description: "栗が濃厚",
+#   name: "タルトケーキ",
+#   description: "いちごとマッチ！",
 #   tax_excluded_price: 400
 # )
-# product5.image.attach(io: File.open(Rails.root.join('app/assets/images/montoblanccake.jpeg')), filename: 'montoblanccake.jpeg')
+# product4.image.attach(io: File.open(Rails.root.join('app/assets/images/tartcake.jpeg')), filename: 'tartcake.jpeg')
+
+
+product5 = Product.create!(
+  genre_id: 1,
+  name: "モンブランケーキ",
+  description: "栗が濃厚",
+  tax_excluded_price: 600
+)
+product5.image.attach(io: File.open(Rails.root.join('app/assets/images/montoblanccake.jpeg')), filename: 'montoblanccake.jpeg')
 
 
 # product6 = Product.create!(
@@ -86,13 +86,13 @@ product4.image.attach(io: File.open(Rails.root.join('app/assets/images/tartcake.
 # product6.image.attach(io: File.open(Rails.root.join('app/assets/images/montoblanccake.jpeg')), filename: 'montoblanccake.jpeg')
 
 
-# product7 = Product.create!(
-#   genre_id: 1,
-#   name: "ホールケーキ",
-#   description: "誕生日に",
-#   tax_excluded_price: 1500
-# )
-# product7.image.attach(io: File.open(Rails.root.join('app/assets/images/wholecake.jpeg')), filename: 'wholecake.jpeg')
+product7 = Product.create!(
+  genre_id: 1,
+  name: "ホールケーキ",
+  description: "お誕生日にどうぞ",
+  tax_excluded_price: 3000
+)
+product7.image.attach(io: File.open(Rails.root.join('app/assets/images/wholecake.jpeg')), filename: 'wholecake.jpeg')
 
 
 # product8 = Product.create!(
