@@ -50,6 +50,13 @@ pry rails
     -   商品の新規追加、編集、閲覧
     -   商品情報の編集
    
+-  設計書
+
+    -   
+    -   [ER図]([https://drive.google.com/file/d/1jgz4aO2qnzrF1evnixtuYmVADjVLljv2/view](https://drive.google.com/file/d/1inr7LSExuMxiJcy5JPlysd6j5okldqcA/view))
+    -   [テーブル定義書](https://docs.google.com/spreadsheets/d/1D6z-31bGuOa9CKtwaWqsg9KXOQQuc4lle4EK3cVPsKk/edit#gid=1373217982)
+    -   [アプリケーション詳細設計書]([https://drive.google.com/file/d/1aQcHwLI7RavTQZEQc651dnfjxXth3GVb/view](https://docs.google.com/spreadsheets/d/1x8JMnaXecm5ebQFQV9X3vaGm08OWOJ_3LQDRU1610Js/edit#gid=549108681))
+   
    
 -   その他
     
