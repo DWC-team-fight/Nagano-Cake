@@ -4,13 +4,16 @@
       <div class="col-md-12">
         <div class="empty-space"></div>
       </div>
-      <div class="mx-auto">
+      <div class="mx-auto text-center">
         <% if admin_signed_in? %>
           <%= link_to "管理者ページ", admin_root_path, class: "nav-link" %>
         <% else %>
           <%= link_to "管理者ページ", admin_session_path, class: "nav-link" %>
         <% end %>
-        <p>CopyRight  fight.inc</p>
+          <i class="fab fa-twitter fa-lg" style="color: #3bb4e8;"></i>  
+          <i class="fab fa-line fa-lg" style="color: #138b57;"></i>
+          <i class="fab fa-instagram fa-lg" style="color: #e35fac;"></i>
+          <p>CopyRight  fight.inc</p>
       </div>
     </div>
   </div>
