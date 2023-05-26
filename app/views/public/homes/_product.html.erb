@@ -8,7 +8,7 @@
     <div class="card-body">
       <p class="card-text"><%= product.name %></p>
       <% if product.is_status == true %>
-        <p class="card-text"><%= product.tax_excluded_price %>円(税抜き)</p>
+        <p class="card-text"><%= product.with_tax_excluded_price.to_s(:delimited) %>円(税込)</p>
       <% else %>
         <p class="card-text text-danger">販売停止中</p>
       <% end %>

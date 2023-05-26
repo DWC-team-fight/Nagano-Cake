@@ -13,7 +13,7 @@
           <h5 class="mb-1"><%= @product.name %></h5>
           <p class="my-4"><%= @product.description %></p>
           <div class="row">
-            <h5 class="ml-md-3">¥ <%= @product.with_tax_excluded_price.to_s(:delimited) %></h5>
+            <h5 class="ml-md-3"><%= @product.with_tax_excluded_price.to_s(:delimited) %>円</h5>
             <p class="ml-1 d-flex align-items-end">(税込)</p>
           </div>
 
