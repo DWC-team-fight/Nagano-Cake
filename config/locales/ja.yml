@@ -13,12 +13,12 @@ ja: # 日本語の設定を行う
           shipped: "発送済み"
 
 
-        order_detail:
-          product_order_status:
-            impossible_work: "製作不可"
-            waiting_work: "製作待ち"
-            working: "制作中"
-            finish: "製作完了"
+    order_detail:
+        product_order_status:
+        impossible_work: "製作不可"
+        waiting_work: "製作待ち"
+        working: "制作中"
+        finish: "製作完了"
 
     activerecord:
       attributes:
@@ -28,7 +28,7 @@ ja: # 日本語の設定を行う
           recive_name: "宛名"
         genre:
           name: "ジャンル名"
-          
+
         customer:
           confirmation_sent_at: パスワード確認送信時刻
           confirmation_token: パスワード確認用トークン
@@ -77,4 +77,3 @@ ja: # 日本語の設定を行う
                 blank: "を入力してください"
 
 
- 
