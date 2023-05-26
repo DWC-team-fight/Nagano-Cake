@@ -1,7 +1,7 @@
 # Nagano Cakeについて
 
 <p align="center">
-  <img src="https://github.com/DWC-team-fight/Nagano-Cake/assets/127069516/2657871b-e669-499c-93ed-712b2abe0f55" />
+  <img src="https://github.com/DWC-team-fight/Nagano-Cake/assets/127069516/0709cffe-6f1c-42fe-9396-727e089cbd12" />
 </p>
 
 ## 概要
