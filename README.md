@@ -1,6 +1,8 @@
 # Nagano Cakeについて
 
-
+<p align="center">
+  <img src="https://github.com/DWC-team-fight/Nagano-Cake/assets/127069516/2657871b-e669-499c-93ed-712b2abe0f55" />
+</p>
 
 ## 概要
 長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト開発アプリケーションです。
