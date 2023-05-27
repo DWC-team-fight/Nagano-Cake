@@ -19,7 +19,7 @@ class Admin::CustomersController < ApplicationController
       redirect_to admin_customer_path(@customer)
       flash[:notice_update] = "情報を更新しました"
     else
-      edit_admins_customer_path(@customer)
+      edit_admin_customer_path(@customer)
     end
   end
 
