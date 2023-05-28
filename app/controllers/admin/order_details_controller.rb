@@ -7,7 +7,6 @@ class Admin::OrderDetailsController < ApplicationController
     @order_detail =OrderDetail.find(params[:id])
     @order =@order_detail.order
     if @order_detail.update(order_detail_params)
-        # byebug
         if @order_detail.product_order_status == "working"
           @order.update(status: 2)
         elsif @order.order_details.where(product_order_status:"製作完了").count == @order.order_details.count
