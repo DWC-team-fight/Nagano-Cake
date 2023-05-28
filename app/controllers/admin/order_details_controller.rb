@@ -9,7 +9,7 @@ class Admin::OrderDetailsController < ApplicationController
     if @order_detail.update(order_detail_params)
         if @order_detail.product_order_status == "working"
           @order.update(status: 2)
-        elsif @order.order_details.where(product_order_status:"製作完了").count == @order.order_details.count
+        elsif @order.order_details.where(product_order_status:3).count == @order.order_details.count
           @order.update(status: 3)
         end
         flash[:notice] ="更新しました"
